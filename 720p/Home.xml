@@ -15,7 +15,7 @@
             <width>1280</width>
             <height>720</height>
 						<aspectratio background="true" aligny="top">stretch</aspectratio>
-            <imagepath background="true">walls</imagepath>
+            <imagepath background="true">test</imagepath>
             <timeperimage>16000</timeperimage>
             <randomize>true</randomize>
             <fadetime>4000</fadetime>
