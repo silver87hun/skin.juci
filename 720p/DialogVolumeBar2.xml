@@ -1,0 +1,110 @@
+<window id="104">
+	<defaultcontrol always="true">-</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+	
+	<controls>
+		<control type="group">
+			<control type="group">
+				<visible>!player.passthrough</visible>
+
+				<control type="progress" id="1">
+					<description>progress control</description>
+					<posx>-20</posx>
+					<posy>1</posy>
+					<width>1340</width>
+					<height>2</height>
+					<info>Player.Volume</info>
+					<midtexture>progresswhite.png</midtexture>
+				</control>
+
+				<control type="image">
+	<animation effect="slide" start="0,0" end="200,0" time="100">WindowOpen</animation>
+    <animation effect="slide" start="200,0" end="0,0" time="100">WindowClose</animation>
+					<right>1050</right>
+					<top>90</top>
+                <width>400</width>
+                <height>90</height>
+                <texture border="20,20,20,20">notification3.png</texture>
+				</control>
+		
+			<control type="group">
+				<left>242r</left>
+				<top>65</top>
+				<visible>!player.passthrough</visible>
+				
+				<control type="label">
+	<animation effect="slide" start="0,0" end="200,0" time="100">WindowOpen</animation>
+    <animation effect="slide" start="200,0" end="0,0" time="100">WindowClose</animation>
+					<description>db Label</description>
+					<right>1265</right>
+					<top>60</top>
+					<width>230</width>
+					<height>29</height>
+          <label>$INFO[Player.Volume]</label>
+					<font>cirrus_30</font>
+					<textcolor>white</textcolor>
+					<shadowcolor>99000000</shadowcolor>
+					<align>right</align>
+					<aligny>center</aligny>
+          <visible>!substring(Player.Volume,-100.0)</visible>
+				</control>
+				
+				<control type="image">
+	<animation effect="slide" start="0,0" end="200,0" time="100">WindowOpen</animation>
+    <animation effect="slide" start="200,0" end="0,0" time="100">WindowClose</animation>
+				<right>1380</right>
+				<top>53</top>
+				<width>40</width>
+                <height>40</height>
+				<texture>audio26.png</texture>
+				</control>
+				<control type="label">
+					<description>Mute Label</description>
+					<right>391r</right>
+					<top>-30</top>
+					<width>230</width>
+					<height>29</height>
+          <label>$LOCALIZE[31300]</label>
+					<font>FontSize_28</font>
+					<textcolor>red</textcolor>
+					<shadowcolor>99000000</shadowcolor>
+					<align>right</align>
+					<aligny>center</aligny>
+          <visible>substring(Player.Volume,-100.0)</visible>				
+			</control>
+			<control type="group">
+				<left>242r</left>
+				<top>65</top>
+				<visible>player.passthrough</visible>
+				<control type="label">
+					<description>Volume Label</description>
+					<right>1265</right>
+					<top>60</top>
+					<width>200</width>
+					<height>29</height>
+					<label>$LOCALIZE[29802]</label>
+					<font>cirrus_30</font>
+					<textcolor>white</textcolor>
+					<shadowcolor>99000000</shadowcolor>
+					<align>left</align>
+					<aligny>center</aligny>
+				</control>
+				<control type="image">
+				<right>1380</right>
+				<top>53</top>
+				<width>40</width>
+                <height>40</height>
+					<texture>osd/volume/audio24.png</texture>
+				</control>
+			</control>
+		</control>
+
+	
+	</control>
+		</control>
+	</controls>
+
+
+
+	
+	</window>

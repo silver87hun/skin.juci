@@ -1,0 +1,850 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+    <include name="HomeNowPlaying">
+
+        <!-- Music NOW PLAYING Info -->
+        <control type="group">
+            <animation type="WindowOpen" reversible="false">
+                <effect type="zoom" start="80" end="100" center="640,360" easing="out" tween="back" time="300"/>
+                <effect type="fade" start="0" end="100" time="300"/>
+            </animation>
+            <animation type="WindowClose" reversible="false">
+                <effect type="zoom" start="100" end="80" center="640,360" easing="in" tween="back" time="300"/>
+                <effect type="fade" start="100" end="0" time="300"/>
+            </animation>      
+            <left>0</left>
+            <top>0</top>
+            <visible>Player.HasAudio + !Skin.HasSetting(homepageNowplayingInfo) + !SubString(Window(videolibrary).Property(tvtunesIsAlive),True)</visible>
+            <include>VisibleFadeEffect</include>
+            <include>Window_OpenClose_Animation</include>
+            <control type="image">
+                <description>Cover image</description>
+                <left>180r</left>
+                <top>410</top>
+                <width>110</width>
+                <height>110</height>
+                <aspectratio aligny="bottom">stretch</aspectratio>
+                <texture>$INFO[MusicPlayer.Cover]</texture>
+                <bordertexture border="6">ContentPanelvertical.png</bordertexture>
+                <bordersize>6</bordersize>
+                <visible>!Skin.HasSetting(cleannowplaying)</visible>
+                <visible>!Skin.HasSetting(cdartonhome)</visible>
+            </control>
+            <control type="image">
+                <description>Logo image</description>
+                <left>222r</left>
+                <top>520</top>
+                <width>150</width>
+                <height>40</height>
+                <aspectratio scalediffuse="false" aligny="center" align="right">keep</aspectratio> 
+                <fadetime>200</fadetime>
+                <texture>$INFO[Skin.String(Music_Folder_Path)]$INFO[MusicPlayer.Artist]/logo.png</texture>
+                <visible>!Skin.HasSetting(cleannowplaying)</visible>
+            </control>
+            <control type="image">
+                <description>Background image</description>
+                <left>295r</left>
+                <top>565</top>
+                <width>225</width>
+                <height>125</height>
+                <aspectratio scalediffuse="false" aligny="center" align="right">stretch</aspectratio> 
+                <fadetime>IconCrossfadeTime</fadetime>
+                <texture>black-back.png</texture>
+                <bordertexture border="8">ContentPanelvertical.png</bordertexture>
+                <bordersize>8</bordersize>
+                <visible>!Skin.HasSetting(cleannowplaying)</visible>
+                <visible>Skin.HasSetting(ExtraFanMusic)</visible>
+            </control>
+            <control type="image">
+                <description>fanart image</description>
+                <left>287r</left>
+                <top>572</top>
+                <width>209</width>
+                <height>111</height>
+                <texture background="true" fallback="special://skin/backgrounds/musicfanart.jpg">$INFO[MusicPlayer.Property(fanart_image)]</texture>
+                <fadetime>300</fadetime>
+                <visible>!Skin.HasSetting(cleannowplaying)</visible>
+                <visible>Skin.HasSetting(ExtraFanMusic)</visible>
+            </control>
+            <control type="multiimage">
+                <description>Extrafanart image</description>
+                <left>287r</left>
+                <top>572</top>
+                <width>209</width>
+                <height>111</height>
+                <imagepath background="true" fallback="special://skin/backgrounds/musicfanart.jpg">$INFO[Skin.String(Music_Folder_Path)]$INFO[MusicPlayer.Artist,,/extrafanart/]</imagepath>
+                <fadetime>300</fadetime>
+                <visible>!Skin.HasSetting(cleannowplaying)</visible>
+                <visible>Skin.HasSetting(ExtraFanMusic)</visible>
+            </control>
+            <control type="label">
+                <description>NowPlaying label</description>
+                <left>190r</left>
+                <top>410</top>
+                <height>30</height>
+                <width>660</width>
+                <label>$LOCALIZE[31040]</label>
+                <align>right</align>
+                <aligny>center</aligny>
+                <font>cirrus_20</font>
+                <textcolor>accent</textcolor>
+
+                <visible>!Skin.HasSetting(cleannowplaying)</visible>
+            </control>
+            <control type="label">
+                <description>NowPlaying label</description>
+                <left>10r</left>
+                <top>410</top>
+                <height>30</height>
+                <width>660</width>
+                <label>$LOCALIZE[31040]</label>
+                <align>right</align>
+                <aligny>center</aligny>
+                <font>cirrus_20</font>
+                <textcolor>accent</textcolor>
+
+                <visible>Skin.HasSetting(cleannowplaying)</visible>
+                <visible>!Skin.HasSetting(cdartonhome)</visible>
+            </control>
+            <control type="label">
+                <description>Artist label</description>
+                <left>190r</left>
+                <top>435</top>
+                <height>30</height>
+                <width>660</width>
+                <label>$INFO[MusicPlayer.Artist]</label>
+                <align>right</align>
+                <aligny>center</aligny>
+                <font>cirrus_16</font>
+                <textcolor>white</textcolor>
+
+                <visible>!Skin.HasSetting(cleannowplaying)</visible>
+            </control>
+            <control type="label">
+                <description>Artist label</description>
+                <left>10r</left>
+                <top>435</top>
+                <height>30</height>
+                <width>660</width>
+                <label>$INFO[MusicPlayer.Artist]</label>
+                <align>right</align>
+                <aligny>center</aligny>
+                <font>cirrus_16</font>
+                <textcolor>white</textcolor>
+
+                <visible>Skin.HasSetting(cleannowplaying)</visible>
+                <visible>!Skin.HasSetting(cdartonhome)</visible>
+            </control>
+            <control type="label">
+                <description>Title label</description>
+                <left>190r</left>
+                <top>460</top>
+                <height>30</height>
+                <width>660</width>
+                <label>$INFO[MusicPlayer.Title]</label>
+                <align>right</align>
+                <aligny>center</aligny>
+                <font>cirrus_20</font>
+                <textcolor>white</textcolor>
+
+                <visible>!Skin.HasSetting(cleannowplaying)</visible>
+            </control>
+            <control type="label">
+                <description>Title label</description>
+                <left>10r</left>
+                <top>460</top>
+                <height>30</height>
+                <width>660</width>
+                <label>$INFO[MusicPlayer.Title]</label>
+                <align>right</align>
+                <aligny>center</aligny>
+                <font>cirrus_20</font>
+                <textcolor>white</textcolor>
+
+                <visible>Skin.HasSetting(cleannowplaying)</visible>
+                <visible>!Skin.HasSetting(cdartonhome)</visible>
+            </control>
+            <control type="label">
+                <description>Time remaining</description>
+                <left>190r</left>
+                <top>490</top>
+                <height>30</height>
+                <width>660</width>
+                <label>$INFO[Player.Time]$INFO[Player.Duration, / ]</label>
+                <align>right</align>
+                <aligny>center</aligny>
+                <font>cirrus_16</font>
+                <textcolor>white</textcolor>
+
+                <visible>!Skin.HasSetting(cleannowplaying)</visible>
+            </control>
+            <control type="label">
+                <description>Time remaining</description>
+                <left>10r</left>
+                <top>490</top>
+                <height>30</height>
+                <width>660</width>
+                <label>$INFO[Player.Time]$INFO[Player.Duration, / ]</label>
+                <align>right</align>
+                <aligny>center</aligny>
+                <font>cirrus_16</font>
+                <textcolor>white</textcolor>
+
+                <visible>Skin.HasSetting(cleannowplaying)</visible>
+                <visible>!Skin.HasSetting(cdartonhome)</visible>
+            </control>
+        </control>
+        <!-- PVR Butchabay from home.xml confluence-->
+        <!-- LiveTV Info -->
+        <control type="group">
+            <left>600</left>
+            <top>75</top>
+            <visible>Container(9000).HasFocus(33) + [PVR.IsRecording | PVR.HasTimer]</visible>
+            <animation type="Visible" reversible="false">
+                <effect type="zoom" start="80" end="100" center="640,360" easing="out" tween="back" time="300"/>
+                <effect type="fade" start="0" end="100" time="300"/>
+            </animation>
+            <animation type="Hidden" reversible="false">
+                <effect type="zoom" start="100" end="80" center="640,360" easing="in" tween="back" time="300"/>
+                <effect type="fade" start="100" end="0" time="300"/>
+            </animation>		    
+            <animation type="WindowOpen" reversible="false">
+                <effect type="zoom" start="80" end="100" center="640,360" easing="out" tween="back" time="300"/>
+                <effect type="fade" start="0" end="100" time="300"/>
+            </animation>
+            <animation type="WindowClose" reversible="false">
+                <effect type="zoom" start="100" end="80" center="640,360" easing="in" tween="back" time="300"/>
+                <effect type="fade" start="100" end="0" time="300"/>
+            </animation>		    
+            <animation effect="fade" start="100" end="0" time="200" condition="Window.IsActive(Favourites)">conditional</animation>
+            <control type="image">
+                <description>background</description>
+                <left>347</left>
+                <top>5</top>
+                <width>320</width>
+                <height>135</height>
+                <colordiffuse>DDFFFFFF</colordiffuse>
+                <texture border="20">dialogbackground.png</texture>
+            </control>
+            <control type="group">
+                <visible>!PVR.IsRecording + PVR.HasTimer</visible>
+                <control type="image">
+                    <left>600</left>
+                    <top>15</top>
+                    <width>25</width>
+                    <height>25</height>
+                    <texture>PVR-HasTimer.png</texture>
+                </control>
+                <control type="label">
+                    <description>Next Timer Header label</description>
+                    <left>370</left>
+                    <top>15</top>
+                    <height>25</height>
+                    <width>400</width>
+                    <label>$LOCALIZE[19157]</label>
+                    <align>left</align>
+                    <aligny>center</aligny>
+                    <font>cirrus_25</font>
+                    <textcolor>accent</textcolor>
+                    <shadowcolor>black</shadowcolor>
+                </control>
+                <control type="label">
+                    <description>NextRecordingTitle</description>
+                    <left>370</left>
+                    <top>40</top>
+                    <height>30</height>
+                    <width>440</width>
+                    <label>$INFO[PVR.NextRecordingTitle]</label>
+                    <align>left</align>
+                    <aligny>center</aligny>
+                    <font>cirrus_20</font>
+                    <shadowcolor>black</shadowcolor>
+                    <scroll>true</scroll>
+                </control>
+                <control type="label">
+                    <description>NextRecordingChannel</description>
+                    <left>370</left>
+                    <top>70</top>
+                    <height>25</height>
+                    <width>440</width>
+                    <label>$INFO[PVR.NextRecordingChannel]</label>
+                    <align>left</align>
+                    <aligny>center</aligny>
+                    <font>cirrus_20</font>
+                    <textcolor>accent</textcolor>
+                    <shadowcolor>black</shadowcolor>
+                </control>
+                <control type="label">
+                    <description>NextRecordingDateTime</description>
+                    <left>370</left>
+                    <top>95</top>
+                    <height>25</height>
+                    <width>440</width>
+                    <label>$INFO[PVR.NextRecordingDateTime,$LOCALIZE[19126] - ]</label>
+                    <align>left</align>
+                    <aligny>center</aligny>
+                    <font>cirrus_20</font>
+                    <shadowcolor>black</shadowcolor>
+                </control>
+            </control>
+            <control type="group">
+                <visible>PVR.IsRecording</visible>
+                <control type="image">
+                    <left>600</left>
+                    <top>15</top>
+                    <width>37</width>
+                    <height>25</height>
+                    <texture>PVR-IsRecording.png</texture>
+                </control>
+                <control type="label">
+                    <description>Is Recording Header label</description>
+                    <left>370</left>
+                    <top>15</top>
+                    <height>25</height>
+                    <width>390</width>
+                    <label>$LOCALIZE[19158]</label>
+                    <align>left</align>
+                    <aligny>center</aligny>
+                    <font>cirrus_25</font>
+                    <textcolor>accent</textcolor>
+                    <shadowcolor>black</shadowcolor>
+                </control>
+                <control type="label">
+                    <description>NextRecordingTitle</description>
+                    <left>370</left>
+                    <top>40</top>
+                    <height>30</height>
+                    <width>440</width>
+                    <label>$INFO[PVR.NowRecordingTitle]</label>
+                    <align>left</align>
+                    <aligny>center</aligny>
+                    <font>cirrus_20</font>
+                    <shadowcolor>black</shadowcolor>
+                    <scroll>true</scroll>
+                </control>
+                <control type="label">
+                    <description>NextRecordingChannel</description>
+                    <left>370</left>
+                    <top>70</top>
+                    <height>25</height>
+                    <width>440</width>
+                    <label>$INFO[PVR.NowRecordingChannel]</label>
+                    <align>left</align>
+                    <aligny>center</aligny>
+                    <font>cirrus_20</font>
+                    <textcolor>accent</textcolor>
+                    <shadowcolor>black</shadowcolor>
+                </control>
+                <control type="label">
+                    <description>NextRecordingDateTime</description>
+                    <left>370</left>
+                    <top>95</top>
+                    <height>25</height>
+                    <width>440</width>
+                    <label>$INFO[PVR.NowRecordingDateTime,$LOCALIZE[19126] - ]</label>
+                    <align>left</align>
+                    <aligny>center</aligny>
+                    <font>cirrus_20</font>
+                    <shadowcolor>black</shadowcolor>
+                </control>
+            </control>
+        </control>
+        <!-- PVR Butchabay  -->
+
+        <!-- VIDEO NOW PLAYING -->
+        <control type="group">
+            <left>-10</left>
+            <top>0</top>
+            <visible>Player.HasVideo + !Skin.HasSetting(homepageNowplayingInfo) + !Skin.HasSetting(Use_Startup_DreamVideo)</visible>
+            <include>VisibleFadeEffect</include>
+            <include>Window_OpenClose_Animation</include>
+            <visible>Skin.HasSetting(homepageNowplayingVideoInfo)</visible>
+            <!-- Non-Library Video Now Playing Info -->
+            <control type="group">
+                <visible>!VideoPlayer.Content(Movies) + !VideoPlayer.Content(Episodes) + !VideoPlayer.Content(LiveTV) + !Skin.HasSetting(Use_Startup_DreamVideo)</visible>
+                <control type="image">
+                    <description>Cover image</description>
+                    <left>140r</left>
+                    <top>380</top>
+                    <width>100</width>
+                    <height>140</height>
+                    <aspectratio aligny="top">stretch</aspectratio>
+                    <texture>$INFO[VideoPlayer.Cover]</texture>
+                    <bordertexture border="8">ThumbBorder.png</bordertexture>
+                    <bordersize>8</bordersize>
+                    <visible>!Skin.HasSetting(cleannowplaying)</visible>
+                </control>
+                <control type="image">
+                    <left>140r</left>
+                    <top>380</top>
+                    <width>100</width>
+                    <height>140</height>
+                    <aspectratio aligny="top">stretch</aspectratio>
+                    <fadetime>IconCrossfadeTime</fadetime>
+                    <!-- <texture>GlassOverlay2.png</texture> -->
+                    <visible>!Skin.HasSetting(cleannowplaying)</visible>
+                </control>
+                <control type="image">
+                    <left>140r</left>
+                    <top>380</top>
+                    <width>100</width>
+                    <height>140</height>
+                    <aspectratio aligny="top">stretch</aspectratio>
+                    <fadetime>IconCrossfadeTime</fadetime>
+                    <!-- <texture background="true">border-poster.png</texture> -->
+                    <visible>!Skin.HasSetting(cleannowplaying)</visible>
+                </control>
+                <control type="label">
+                    <description>NowPlaying label</description>
+                    <left>150r</left>
+                    <top>380</top>
+                    <height>30</height>
+                    <width>660</width>
+                    <label>[COLOR=accent]$LOCALIZE[31040][/COLOR]</label>
+                    <align>right</align>
+                    <aligny>center</aligny>
+                    <font>cirrus_24</font>
+                    <textcolor>blue</textcolor>
+                    <shadowcolor>black</shadowcolor>
+                    <visible>!Skin.HasSetting(cleannowplaying)</visible>
+                </control>
+                <control type="label">
+                    <description>NowPlaying label</description>
+                    <left>10r</left>
+                    <top>380</top>
+                    <height>30</height>
+                    <width>660</width>
+                    <label>[COLOR=accent]$LOCALIZE[31040][/COLOR]</label>
+                    <align>right</align>
+                    <aligny>center</aligny>
+                    <font>cirrus_24</font>
+                    <textcolor>blue</textcolor>
+                    <shadowcolor>black</shadowcolor>
+                    <visible>Skin.HasSetting(cleannowplaying)</visible>
+                </control>
+                <control type="label">
+                    <description>Title label</description>
+                    <left>150r</left>
+                    <top>410</top>
+                    <height>30</height>
+                    <width>660</width>
+                    <label>$INFO[VideoPlayer.Title]$INFO[VideoPlayer.Year,[COLOR=grey] (,)[/COLOR]]</label>
+                    <align>right</align>
+                    <aligny>center</aligny>
+                    <font>cirrus_24</font>
+                    <textcolor>white</textcolor>
+                    <shadowcolor>black</shadowcolor>
+                    <visible>!Skin.HasSetting(cleannowplaying)</visible>
+                </control>
+                <control type="label">
+                    <description>Title label</description>
+                    <left>10r</left>
+                    <top>410</top>
+                    <height>30</height>
+                    <width>660</width>
+                    <label>$INFO[VideoPlayer.Title]$INFO[VideoPlayer.Year,[COLOR=grey] (,)[/COLOR]]</label>
+                    <align>right</align>
+                    <aligny>center</aligny>
+                    <font>cirrus_24</font>
+                    <textcolor>white</textcolor>
+                    <shadowcolor>black</shadowcolor>
+                    <visible>Skin.HasSetting(cleannowplaying)</visible>
+                </control>
+                <control type="label">
+                    <description>Time Label</description>
+                    <left>150r</left>
+                    <top>470</top>
+                    <height>30</height>
+                    <width>325</width>
+                    <label>$INFO[Player.Time]$INFO[Player.Duration, / ]</label>
+                    <align>right</align>
+                    <aligny>center</aligny>
+                    <font>cirrus_16</font>
+                    <textcolor>white</textcolor>
+                    <shadowcolor>black</shadowcolor>
+                    <visible>!Skin.HasSetting(cleannowplaying)</visible>
+                </control>
+
+                <control type="label">
+                    <description>Time Label</description>
+                    <left>10r</left>
+                    <top>470</top>
+                    <height>30</height>
+                    <width>325</width>
+                    <label>$INFO[Player.Time]$INFO[Player.Duration, / ]</label>
+                    <align>right</align>
+                    <aligny>center</aligny>
+                    <font>cirrus_16</font>
+                    <textcolor>white</textcolor>
+                    <shadowcolor>black</shadowcolor>
+                    <visible>Skin.HasSetting(cleannowplaying)</visible>
+                </control>
+            </control>
+            <!-- NOW PLAYING INFO MOVIES -->
+            <control type="group">
+                <visible>VideoPlayer.Content(Movies)</visible>
+                <visible>Skin.HasSetting(homepageNowplayingVideoInfo)</visible>
+                <control type="image">
+                    <description>Cover image</description>
+                    <left>140r</left>
+                    <top>360</top>
+                    <width>100</width>
+                    <height>140</height>
+                    <aspectratio aligny="top">stretch</aspectratio>
+                    <texture>$INFO[VideoPlayer.Cover]</texture>
+                    <bordertexture border="8">ThumbBorder.png</bordertexture>
+                    <bordersize>8</bordersize>
+                    <visible>!Skin.HasSetting(cleannowplaying)</visible>
+                </control>
+                <control type="image">
+                    <left>140r</left>
+                    <top>380</top>
+                    <width>100</width>
+                    <height>140</height>
+                    <aspectratio aligny="top">stretch</aspectratio>
+                    <fadetime>IconCrossfadeTime</fadetime>
+                    <!-- <texture>GlassOverlay2.png</texture> -->
+                    <visible>!Skin.HasSetting(cleannowplaying)</visible>
+                </control>
+                <control type="image">
+                    <left>140r</left>
+                    <top>380</top>
+                    <width>100</width>
+                    <height>140</height>
+                    <aspectratio aligny="top">stretch</aspectratio>
+                    <fadetime>IconCrossfadeTime</fadetime>
+                    <!-- <texture background="true">border-poster.png</texture> -->
+                    <visible>!Skin.HasSetting(cleannowplaying)</visible>
+                </control>
+                <control type="label">
+                    <description>NowPlaying label</description>
+                    <left>150r</left>
+                    <top>380</top>
+                    <height>30</height>
+                    <width>660</width>
+                    <label>[COLOR=accent]$LOCALIZE[31040][/COLOR]</label>
+                    <align>right</align>
+                    <aligny>center</aligny>
+                    <font>cirrus_24</font>
+                    <textcolor>blue</textcolor>
+                    <shadowcolor>black</shadowcolor>
+                    <visible>!Skin.HasSetting(cleannowplaying)</visible>
+                </control>
+                <control type="label">
+                    <description>NowPlaying label</description>
+                    <left>10r</left>
+                    <top>380</top>
+                    <height>30</height>
+                    <width>660</width>
+                    <label>[COLOR=accent]$LOCALIZE[31040][/COLOR]</label>
+                    <align>right</align>
+                    <aligny>center</aligny>
+                    <font>cirrus_24</font>
+                    <textcolor>blue</textcolor>
+                    <shadowcolor>black</shadowcolor>
+                    <visible>Skin.HasSetting(cleannowplaying)</visible>
+                </control>
+                <control type="label">
+                    <description>Title label</description>
+                    <left>150r</left>
+                    <top>410</top>
+                    <height>30</height>
+                    <width>660</width>
+                    <label>$INFO[VideoPlayer.Title]$INFO[VideoPlayer.Year,[COLOR=grey] (,)[/COLOR]]</label>
+                    <align>right</align>
+                    <aligny>center</aligny>
+                    <font>cirrus_24</font>
+                    <textcolor>white</textcolor>
+                    <shadowcolor>black</shadowcolor>
+                    <visible>!Skin.HasSetting(cleannowplaying)</visible>
+                </control>
+                <control type="label">
+                    <description>Title label</description>
+                    <left>10r</left>
+                    <top>410</top>
+                    <height>30</height>
+                    <width>660</width>
+                    <label>$INFO[VideoPlayer.Title]$INFO[VideoPlayer.Year,[COLOR=grey] (,)[/COLOR]]</label>
+                    <align>right</align>
+                    <aligny>center</aligny>
+                    <font>cirrus_24</font>
+                    <textcolor>white</textcolor>
+                    <shadowcolor>black</shadowcolor>
+                    <visible>Skin.HasSetting(cleannowplaying)</visible>
+                </control>
+                <control type="label">
+                    <description>Genre Label</description>
+                    <left>150r</left>
+                    <top>440</top>
+                    <height>30</height>
+                    <width>660</width>
+                    <label>$INFO[VideoPlayer.Genre]</label>
+                    <align>right</align>
+                    <aligny>center</aligny>
+                    <font>cirrus_16</font>
+                    <textcolor>white</textcolor>
+                    <shadowcolor>black</shadowcolor>
+                    <visible>!Skin.HasSetting(cleannowplaying)</visible>
+                </control>
+                <control type="label">
+                    <description>Genre Label</description>
+                    <left>10r</left>
+                    <top>440</top>
+                    <height>30</height>
+                    <width>660</width>
+                    <label>$INFO[VideoPlayer.Genre]</label>
+                    <align>right</align>
+                    <aligny>center</aligny>
+                    <font>cirrus_16</font>
+                    <textcolor>white</textcolor>
+                    <shadowcolor>black</shadowcolor>
+                    <visible>Skin.HasSetting(cleannowplaying)</visible>
+                </control>
+                <control type="label">
+                    <description>Time Label</description>
+                    <left>150r</left>
+                    <top>470</top>
+                    <height>30</height>
+                    <width>325</width>
+                    <label>$INFO[Player.Time]$INFO[Player.Duration, / ]</label>
+                    <align>right</align>
+                    <aligny>center</aligny>
+                    <font>cirrus_16</font>
+                    <textcolor>white</textcolor>
+                    <shadowcolor>black</shadowcolor>
+                    <visible>!Skin.HasSetting(cleannowplaying)</visible>
+                </control>
+                <control type="label">
+                    <description>Time Label</description>
+                    <left>10r</left>
+                    <top>470</top>
+                    <height>30</height>
+                    <width>325</width>
+                    <label>$INFO[Player.Time]$INFO[Player.Duration, / ]</label>
+                    <align>right</align>
+                    <aligny>center</aligny>
+                    <font>cirrus_16</font>
+                    <textcolor>white</textcolor>
+                    <shadowcolor>black</shadowcolor>
+                    <visible>Skin.HasSetting(cleannowplaying)</visible>
+                </control>
+            </control>
+            <!-- NOW PLAYING INFO LiveTV -->
+            <control type="group">
+                <visible>VideoPlayer.Content(LiveTV)</visible>
+                <visible>Skin.HasSetting(homepageNowplayingVideoInfo)</visible>
+                <control type="image">
+                    <description>Cover image</description>
+                    <left>235r</left>
+                    <top>500</top>
+                    <width>80</width>
+                    <height>80</height>
+                    <aspectratio aligny="top">keep</aspectratio>
+                    <texture>$INFO[VideoPlayer.Cover]</texture>
+                </control>
+                <control type="label">
+                    <description>NowPlaying label</description>
+                    <left>150r</left>
+                    <top>380</top>
+                    <height>30</height>
+                    <width>660</width>
+                    <label>[COLOR=accent]$LOCALIZE[31040][/COLOR]</label>
+                    <align>right</align>
+                    <aligny>center</aligny>
+                    <font>cirrus_24</font>
+                    <textcolor>blue</textcolor>
+                    <shadowcolor>black</shadowcolor>
+                </control>
+                <control type="label">
+                    <description>Title label</description>
+                    <left>150r</left>
+                    <top>410</top>
+                    <height>30</height>
+                    <width>660</width>
+                    <label>$INFO[VideoPlayer.Title]$INFO[VideoPlayer.Year,[COLOR=grey] (,)[/COLOR]]</label>
+                    <align>right</align>
+                    <aligny>center</aligny>
+                    <font>cirrus_24</font>
+                    <textcolor>white</textcolor>
+                    <shadowcolor>black</shadowcolor>
+                </control>
+                <control type="label">
+                    <description>Genre Label</description>
+                    <left>150r</left>
+                    <top>440</top>
+                    <height>30</height>
+                    <width>660</width>
+                    <label>$INFO[VideoPlayer.Genre]</label>
+                    <align>right</align>
+                    <aligny>center</aligny>
+                    <font>cirrus_16</font>
+                    <textcolor>white</textcolor>
+                    <shadowcolor>black</shadowcolor>
+                </control>
+                <control type="label">
+                    <description>Time Label</description>
+                    <left>150r</left>
+                    <top>470</top>
+                    <height>30</height>
+                    <width>325</width>
+                    <label>$INFO[Player.Time]$INFO[Player.Duration, / ]</label>
+                    <align>right</align>
+                    <aligny>center</aligny>
+                    <font>cirrus_16</font>
+                    <textcolor>white</textcolor>
+                    <shadowcolor>black</shadowcolor>
+                </control>
+            </control>
+            <!-- NOW PLAYING EPISODES -->
+            <control type="group">
+                <visible>VideoPlayer.Content(Episodes)</visible>
+                <visible>Skin.HasSetting(homepageNowplayingVideoInfo)</visible>
+                <control type="image">
+                    <description>Cover image</description>
+                    <left>240r</left>
+                    <top>400</top>
+                    <width>200</width>
+                    <height>120</height>
+                    <aspectratio aligny="top">keep</aspectratio>
+                    <texture>$INFO[VideoPlayer.Cover]</texture>
+                    <bordertexture border="8">ThumbBorder.png</bordertexture>
+                    <bordersize>4</bordersize>
+                    <visible>!Skin.HasSetting(cleannowplaying)</visible>
+                </control>
+                <control type="image">
+                    <left>240r</left>
+                    <top>400</top>
+                    <width>200</width>
+                    <height>120</height>
+                    <aspectratio aligny="top">stretch</aspectratio>
+                    <fadetime>IconCrossfadeTime</fadetime>
+                    <!-- <texture>GlassOverlay2.png</texture> -->
+                    <visible>!Skin.HasSetting(cleannowplaying)</visible>
+                </control>
+                <control type="image">
+                    <left>240r</left>
+                    <top>400</top>
+                    <width>200</width>
+                    <height>120</height>
+                    <aspectratio aligny="top">stretch</aspectratio>
+                    <fadetime>IconCrossfadeTime</fadetime>
+                    <!-- <texture background="true">border-thumbnail.png</texture> -->
+                    <visible>!Skin.HasSetting(cleannowplaying)</visible>
+                </control>
+                <control type="label">
+                    <description>NowPlaying label</description>
+                    <left>250r</left>
+                    <top>400</top>
+                    <height>30</height>
+                    <width>610</width>
+                    <label>$LOCALIZE[31040]</label>
+                    <align>right</align>
+                    <aligny>center</aligny>
+                    <font>cirrus_24</font>
+                    <textcolor>accent</textcolor>
+                    <shadowcolor>black</shadowcolor>
+                    <visible>!Skin.HasSetting(cleannowplaying)</visible>
+                </control>
+                <control type="label">
+                    <description>NowPlaying label</description>
+                    <left>10r</left>
+                    <top>400</top>
+                    <height>30</height>
+                    <width>610</width>
+                    <label>$LOCALIZE[31040]</label>
+                    <align>right</align>
+                    <aligny>center</aligny>
+                    <font>cirrus_24</font>
+                    <textcolor>accent</textcolor>
+                    <shadowcolor>black</shadowcolor>
+                    <visible>Skin.HasSetting(cleannowplaying)</visible>
+                </control>
+                <control type="label">
+                    <description>TV Show label</description>
+                    <left>250r</left>
+                    <top>430</top>
+                    <height>30</height>
+                    <width>610</width>
+                    <label>$INFO[VideoPlayer.TVShowTitle]</label>
+                    <align>right</align>
+                    <aligny>center</aligny>
+                    <font>cirrus_20</font>
+                    <textcolor>white</textcolor>
+                    <shadowcolor>black</shadowcolor>
+                    <visible>!Skin.HasSetting(cleannowplaying)</visible>
+                </control>
+                <control type="label">
+                    <description>TV Show label</description>
+                    <left>10r</left>
+                    <top>430</top>
+                    <height>30</height>
+                    <width>610</width>
+                    <label>$INFO[VideoPlayer.TVShowTitle]</label>
+                    <align>right</align>
+                    <aligny>center</aligny>
+                    <font>cirrus_20</font>
+                    <textcolor>white</textcolor>
+                    <shadowcolor>black</shadowcolor>
+                    <visible>Skin.HasSetting(cleannowplaying)</visible>
+                </control>
+                <control type="label">
+                    <description>Season Ep Label</description>
+                    <left>250r</left>
+                    <top>460</top>
+                    <height>30</height>
+                    <width>610</width>
+                    <label>$LOCALIZE[20373] $INFO[VideoPlayer.Season] - $LOCALIZE[20359] $INFO[VideoPlayer.episode]</label>
+                    <align>right</align>
+                    <aligny>center</aligny>
+                    <font>cirrus_16</font>
+                    <textcolor>white</textcolor>
+                    <shadowcolor>black</shadowcolor>
+                    <visible>!Skin.HasSetting(cleannowplaying)</visible>
+                </control>
+                <control type="label">
+                    <description>Season Ep Label</description>
+                    <left>10r</left>
+                    <top>460</top>
+                    <height>30</height>
+                    <width>610</width>
+                    <label>$LOCALIZE[20373] $INFO[VideoPlayer.Season] - $LOCALIZE[20359] $INFO[VideoPlayer.episode]</label>
+                    <align>right</align>
+                    <aligny>center</aligny>
+                    <font>cirrus_16</font>
+                    <textcolor>white</textcolor>
+                    <shadowcolor>black</shadowcolor>
+                    <visible>Skin.HasSetting(cleannowplaying)</visible>
+                </control>
+                <control type="label">
+                    <description>Title label</description>
+                    <left>250r</left>
+                    <top>490</top>
+                    <height>30</height>
+                    <width>610</width>
+                    <label>$INFO[VideoPlayer.Title]</label>
+                    <align>right</align>
+                    <aligny>center</aligny>
+                    <font>cirrus_20</font>
+                    <textcolor>white</textcolor>
+                    <shadowcolor>black</shadowcolor>
+                    <visible>!Skin.HasSetting(cleannowplaying)</visible>
+                </control>
+                <control type="label">
+                    <description>Title label</description>
+                    <left>10r</left>
+                    <top>490</top>
+                    <height>30</height>
+                    <width>610</width>
+                    <label>$INFO[VideoPlayer.Title]</label>
+                    <align>right</align>
+                    <aligny>center</aligny>
+                    <font>cirrus_20</font>
+                    <textcolor>white</textcolor>
+                    <shadowcolor>black</shadowcolor>
+                    <visible>Skin.HasSetting(cleannowplaying)</visible>
+                </control>
+            </control>
+        </control>
+
+    </include>
+</includes>

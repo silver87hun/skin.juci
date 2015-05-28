@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="107">
+
+<!-- 	<animation effect="slide" start="0,0" end="10,0" time="100">WindowOpen</animation>
+    <animation effect="slide" start="10,0" end="0,0" time="100">WindowClose</animation> -->
+    <coordinates>
+        <system>1</system>
+        <left>-160</left>
+        <top>50</top>
+    </coordinates>
+	
+				    <controls>
+        <control type="group">
+		 <top>20</top>
+				<animation effect="slide" start="0" end="0,60" time="450" tween="sine" easing="out"  center="auto" delay="400" condition="true">WindowOpen</animation>
+				<animation effect="slide" start="0,60" end="-400.400" time="450" tween="elastic" easing="out"  center="auto" delay="2200" condition="true">WindowClose</animation>
+				<control type="image">
+                <left>180</left>
+                <top>0</top>
+                <width>320</width>
+                <height>30</height>
+                <texture>mask_black20.png</texture>
+            </control>
+			            <control type="fadelabel" id="402">
+                <description>Line 2 Label</description>
+                <left>190</left>
+                <top>5</top>
+                <width>280</width>
+                <height>20</height>
+                <font>Keyboard-Label</font>
+                <textcolor>grey2</textcolor>
+                <align>left</align>
+                <aligny>center</aligny>
+                <scrollout>false</scrollout>
+                <pauseatend>2000</pauseatend>
+            </control></control></controls>
+<!-- 	<control type="multiimage">
+            <visible>!Skin.HasSetting(Menu_RandomCustom1)</visible>
+            <left>0</left>
+            <top>0</top>
+            <width>1280</width>
+            <height>720</height>
+            <imagepath background="true">walls</imagepath>
+            <timeperimage>8000</timeperimage>
+            <randomize>true</randomize>
+            <fadetime>500</fadetime>
+            <animation effect="zoom" start="110" end="135" center="auto" time="15000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
+            <animation effect="slide" end="-20,-20" delay="4000" time="8000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
+            <animation effect="slide" end="40,0" delay="10000" time="6000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
+        </control> -->
+	
+	
+	<controls>
+			<control type="group">
+			    <left>220</left>
+                <top>-10</top>
+				<animation effect="slide" start="0" end="0,30" time="450" tween="sine" easing="out"  center="auto" delay="400" condition="true">WindowOpen</animation>
+<animation effect="slide" start="0,30" end="-400.400" time="450" tween="elatic" easing="out"  center="auto" delay="2200" condition="true">WindowClose</animation>
+				            <control type="image">
+			<!-- <visible>!Skin.HasSetting(Menu_RandomCustom1)</visible> -->
+                <left>0</left>
+                <top>0</top>
+                <width>280</width>
+                <height>60</height>
+<!-- 				<timeperimage>16000</timeperimage>
+				<randomize>true</randomize>
+				<fadetime>4000</fadetime> 
+                <imagepath background="true">lightoverlays20</imagepath>-->
+				<texture>mask_black50.png</texture>
+			    <animation effect="zoom" start="110" end="135" center="auto" time="15000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
+<!--             <animation effect="slide" end="-20,-20" delay="4000" time="8000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
+            <animation effect="slide" end="40,0" delay="10000" time="6000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation> -->
+            </control>
+<!-- 			 <animation effect="slide" end="-20,-20" delay="4000" time="8000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
+            <animation effect="slide" end="40,0" delay="10000" time="6000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation> -->
+            <control type="fadelabel" id="401">
+                <description>Line 1 Label</description>
+                <left>30</left>
+                <top>15</top>
+                <width>280</width>
+                <height>18</height>
+                <font>Menu-Scroll</font>
+                <textcolor>white</textcolor>
+                <align>left</align>
+                <aligny>center</aligny>
+                <scrollout>false</scrollout>
+                <pauseatend>2000</pauseatend>
+            </control>
+
+        </control>
+    </controls>
+	
+    <controls>
+        <control type="group">
+				<animation effect="slide" start="0" end="0,30" time="450" tween="sine" easing="out"  center="auto" delay="400" condition="true">WindowOpen</animation>
+				<animation effect="slide" start="0,30" end="-400.400" time="450" tween="elastic" easing="out"  center="auto" delay="2200" condition="true">WindowClose</animation>
+            <control type="multiimage">
+			<visible>!Skin.HasSetting(Menu_RandomCustom1)</visible>
+                <left>180</left>
+                <top>-10</top>
+                <width>60</width>
+                <height>60</height>
+				<timeperimage>16000</timeperimage>
+				<randomize>true</randomize>
+				<fadetime>4000</fadetime>
+                <imagepath background="true">lightoverlays</imagepath>
+			    <animation effect="zoom" start="110" end="135" center="auto" time="15000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
+<!--             <animation effect="slide" end="-20,-20" delay="4000" time="8000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
+            <animation effect="slide" end="40,0" delay="10000" time="6000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation> -->
+            </control>
+            <control type="image" id="400">
+                <description>avatar</description>
+                <left>180</left>
+                <top>-10</top>
+                <width>60</width>
+                <height>60</height>
+                <aspectratio>keep</aspectratio>
+                <texture>DefaultFile.png</texture>
+            </control>
+			</control></controls>
+					
+</window>

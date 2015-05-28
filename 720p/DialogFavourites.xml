@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog" id="134">
+  <defaultcontrol always="true">450</defaultcontrol>
+  <coordinates>
+    <system>1</system>
+    <left>0</left>
+    <top>0</top>
+  </coordinates>
+  <controls>
+ 
+    <control type="group">
+	  <control type="multiimage">
+        <left>350r</left>
+        <top></top>
+        <width>950</width>
+        <height>730</height>
+				
+
+ 			 <visible>!Skin.HasSetting(Menu_RandomCustom1)</visible>
+             	 <timeperimage>8000</timeperimage>
+				<randomize>true</randomize> 
+				 <fadetime>1000</fadetime>
+                  <imagepath background="true">walls</imagepath>
+                <visible>!Skin.HasSetting(cleanHome) | !Skin.HasSetting(homeNoClock)</visible>
+                <visible>!Skin.HasSetting(themelighthorz)</visible>
+                <visible>!Skin.HasSetting(originalcirrusclock)</visible>
+            </control> 
+      <animation effect="slide" start="400,0" end="0,0" time="900" tween="back" easing="inout">WindowOpen</animation>
+      <animation effect="slide" start="0,0" end="400,0" time="900" tween="back" easing="inout">WindowClose</animation>
+      <!-- <control type="image">
+        <left>350r</left>
+        <top>-5</top>
+        <width>950</width>
+        <height>730</height>
+        <texture flipx="true" border="5">halvany.png</texture>
+        <aspectratio>stretch</aspectratio>
+      </control> -->
+		<control type="image">
+        <right>-200</right>
+        <top>205</top>
+        <width>550</width>
+        <height>600</height>
+		<texture>mask_black50.png</texture> </control>
+				<control type="image">
+        <right>-200</right>
+        <top>5</top>
+        <width>550</width>
+        <height>200</height>
+		<texture>mask_black70.png</texture>
+				<!-- <visible>!Skin.HasSetting(Menu_RandomCustom1)</visible>
+             	 <timeperimage>8000</timeperimage>
+				<randomize>true</randomize> 
+				 <fadetime>2000</fadetime>
+                  <imagepath background="true">walls</imagepath>
+                <visible>!Skin.HasSetting(cleanHome) | !Skin.HasSetting(homeNoClock)</visible>
+                <visible>!Skin.HasSetting(themelighthorz)</visible>
+                <visible>!Skin.HasSetting(originalcirrusclock)</visible> -->
+        </control>
+<!-- 		<control type="image">
+            <left>349r</left>
+            <top>50</top>
+            <width>450</width>
+            <height>1</height>
+            <texture>mask_white90.png</texture>
+          </control> -->
+		  		<control type="image">
+            <left>340r</left>
+            <top>10</top>
+            <width>25</width>
+            <height>25</height>
+            <texture>nyil_bal.png</texture>
+          </control>
+      <control type="image">
+        <left>255r</left>
+        <top>-35</top>
+        <width>180</width>
+        <height>280</height>
+        <aspectratio align="center">keep</aspectratio>
+        <fadetime>IconCrossfadeTime</fadetime>
+        <texture>$INFO[ListItem.Icon]</texture>
+        <!-- <bordertexture border="10">mask_black20.png</bordertexture> -->
+        <bordersize>8</bordersize>
+      </control>
+      <control type="list" id="450">
+        <right>-200</right>
+        <top>230</top>
+        <width>500</width>
+        <height>360</height>
+        <onup>450</onup>
+        <onleft>Dialog.Close(Favourites)</onleft>
+        <onright>450</onright>
+        <ondown>450</ondown>
+        <pagecontrol>-</pagecontrol>
+        <scrolltime>200</scrolltime>
+        <itemlayout height="40">
+          <!-- <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>370</width>
+            <height>40</height>
+            <texture border="5">menuitemNF.png</texture>
+          </control> -->
+          <control type="label">
+            <left>25</left>
+            <top>0</top>
+            <width>200</width>
+            <height>40</height>
+            <font>Keyboard-Label</font>
+            <align>center</align>
+            <aligny>center</aligny>
+            <selectedcolor>selected</selectedcolor>
+            <info>ListItem.Label</info>
+          </control>
+        </itemlayout>
+        <focusedlayout height="40">
+          		
+
+		  <control type="image">
+            <left>0</left>
+            <top>35</top>
+            <width>250</width>
+            <height>2</height>
+            <visible>!Control.HasFocus(450)</visible>
+              <texture>mask_black50.png</texture>
+           <!--  <aspectratio>stretch</aspectratio> -->
+          </control>
+         <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>250</width>
+            <height>40</height>
+            <visible>Control.HasFocus(450)</visible>
+            <texture>mask_black50.png</texture>
+            <aspectratio>stretch</aspectratio>
+          </control>
+          <control type="label">
+            <left>25</left>
+            <top>0</top>
+            <width>200</width>
+            <height>40</height>
+            <font>Keyboard-Label</font>
+            <align>center</align>
+            <aligny>center</aligny>
+            <selectedcolor>selected</selectedcolor>
+            <info>ListItem.Label</info>
+          </control>
+        </focusedlayout>
+      </control>
+	  
+<!-- 	  	           <control type="image">
+            <left>930</left>
+            <top>720</top>
+            <width>450</width>
+            <height>10</height>
+            <texture>mask_black50.png</texture>
+            <aspectratio>stretch</aspectratio>
+          </control> -->
+<!--       <control type="label">
+        <description>Page label</description>
+        <left>900</left>
+        <top>690</top>
+        <width>350</width>
+        <height>30</height>
+        <align>right</align>
+        <aligny>center</aligny>
+        <font>Context-List</font>
+        <textcolor>grey</textcolor>
+        <label>([COLOR=accent]$INFO[Container(450).NumItems][/COLOR]) $LOCALIZE[31025] - $LOCALIZE[31024] ([COLOR=accent]$INFO[Container(450).CurrentPage]/$INFO[Container(450).NumPages][/COLOR])</label>
+      </control> -->
+
+    </control>
+  </controls>
+</window>

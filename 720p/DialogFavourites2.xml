@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog" id="134">
+  <defaultcontrol always="true">450</defaultcontrol>
+  <coordinates>
+    <system>1</system>
+    <left>0</left>
+    <top>0</top>
+  </coordinates>
+  <controls>
+  
+    <control type="group">
+
+      <animation effect="slide" start="400,0" end="0,0" time="400" tween="quadratic" easing="out">WindowOpen</animation>
+      <animation effect="slide" start="0,0" end="400,0" time="400" tween="quadratic" easing="out">WindowClose</animation>
+	  	 <control type="multiimage">
+			<visible>!Skin.HasSetting(Menu_RandomCustom1)</visible>
+        <left>350r</left>
+        <top>-5</top>
+        <width>950</width>
+        <height>730</height>
+				<timeperimage>16000</timeperimage>
+				<randomize>1</randomize>
+				<fadetime>4000</fadetime>
+                <imagepath background="true">walls</imagepath>
+			    <animation effect="zoom" start="110" end="135" center="auto" time="15000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
+            <animation effect="slide" end="-20,-20" delay="4000" time="8000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
+            <animation effect="slide" end="40,0" delay="10000" time="6000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
+            </control>
+				  	 <control type="multiimage">
+			<visible>!Skin.HasSetting(Menu_RandomCustom1)</visible>
+        <left>350r</left>
+        <top>-5</top>
+        <width>950</width>
+        <height>230</height>
+				<timeperimage>16000</timeperimage>
+				<randomize>1</randomize>
+				<fadetime>4000</fadetime>
+                <imagepath background="true">walls</imagepath>
+			    <animation effect="zoom" start="110" end="135" center="auto" time="15000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
+            <animation effect="slide" end="-20,-20" delay="4000" time="8000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
+            <animation effect="slide" end="40,0" delay="10000" time="6000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
+            </control>
+ <!--      <control type="image">
+        <left>350r</left>
+        <top>-5</top>
+        <width>950</width>
+        <height>730</height>
+        <texture flipx="true" border="5">halvany.png</texture>
+        <aspectratio>stretch</aspectratio>
+      </control> -->
+      <control type="image">
+        <left>265r</left>
+        <top>55</top>
+        <width>180</width>
+        <height>280</height>
+        <aspectratio align="center">keep</aspectratio>
+        <fadetime>IconCrossfadeTime</fadetime>
+        <texture>$INFO[ListItem.Icon]</texture>
+        <bordertexture border="8">Thumbborder.png</bordertexture>
+        <bordersize>8</bordersize>
+      </control>
+      <control type="list" id="450">
+        <right>-200</right>
+        <top>300</top>
+        <width>500</width>
+        <height>360</height>
+        <onup>450</onup>
+        <onleft>Dialog.Close(Favourites)</onleft>
+        <onright>450</onright>
+        <ondown>450</ondown>
+        <pagecontrol>-</pagecontrol>
+        <scrolltime>200</scrolltime>
+        <itemlayout height="40">
+          <!-- <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>370</width>
+            <height>40</height>
+            <texture border="5">menuitemNF.png</texture>
+          </control> -->
+          <control type="label">
+            <left>25</left>
+            <top>0</top>
+            <width>200</width>
+            <height>40</height>
+            <font>cirrus_20</font>
+            <align>center</align>
+            <aligny>center</aligny>
+            <selectedcolor>selected</selectedcolor>
+            <info>ListItem.Label</info>
+          </control>
+        </itemlayout>
+        <focusedlayout height="40">
+          <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>250</width>
+            <height>40</height>
+            <visible>!Control.HasFocus(450)</visible>
+            <texture border="3">halvany.png</texture>
+            <aspectratio>stretch</aspectratio>
+          </control>
+		  				  	 <control type="multiimage">
+			<visible>!Skin.HasSetting(Menu_RandomCustom1)</visible>
+			            <visible>!Control.HasFocus(450)</visible>
+            <left>0</left>
+            <top>0</top>
+            <width>250</width>
+            <height>40</height>
+				<timeperimage>16000</timeperimage>
+				<randomize>true</randomize>
+				<fadetime>4000</fadetime>
+                <imagepath background="true">walls</imagepath>
+			    <animation effect="zoom" start="110" end="135" center="auto" time="15000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
+            <animation effect="slide" end="-20,-20" delay="4000" time="8000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
+            <animation effect="slide" end="40,0" delay="10000" time="6000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
+            </control>
+          <control type="image">
+		  				  	 <control type="multiimage">
+			<visible>!Skin.HasSetting(Menu_RandomCustom1)</visible>
+        <left>350r</left>
+        <top>-5</top>
+        <width>950</width>
+        <height>230</height>
+				<timeperimage>16000</timeperimage>
+				<randomize>1</randomize>
+				<fadetime>4000</fadetime>
+                <imagepath background="true">walls</imagepath>
+			    <animation effect="zoom" start="110" end="135" center="auto" time="15000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
+            <animation effect="slide" end="-20,-20" delay="4000" time="8000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
+            <animation effect="slide" end="40,0" delay="10000" time="6000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
+            </control>
+            <left>0</left>
+            <top>0</top>
+            <width>250</width>
+            <height>40</height>
+            <visible>Control.HasFocus(450)</visible>
+            <texture flipx="true">halvany.png</texture>
+            <aspectratio>stretch</aspectratio>
+          </control>
+          <control type="label">
+            <left>25</left>
+            <top>0</top>
+            <width>200</width>
+            <height>40</height>
+            <font>cirrus_20</font>
+            <align>center</align>
+            <aligny>center</aligny>
+            <selectedcolor>selected</selectedcolor>
+            <info>ListItem.Label</info>
+          </control>
+        </focusedlayout>
+      </control>
+      <control type="label">
+        <description>Page label</description>
+        <left>900</left>
+        <top>670</top>
+        <width>350</width>
+        <height>30</height>
+        <align>right</align>
+        <aligny>center</aligny>
+        <font>cirrus_16</font>
+        <textcolor>grey</textcolor>
+        <label>([COLOR=accent]$INFO[Container(450).NumItems][/COLOR]) $LOCALIZE[31025] - $LOCALIZE[31024] ([COLOR=accent]$INFO[Container(450).CurrentPage]/$INFO[Container(450).NumPages][/COLOR])</label>
+      </control>
+    </control>
+  </controls>
+</window>

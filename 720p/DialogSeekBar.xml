@@ -1,0 +1,1471 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<window id="115">
+  <defaultcontrol>1</defaultcontrol>
+  <allowoverlay>yes</allowoverlay>
+  <visible>Window.IsActive(fullscreenvideo) + [Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding]</visible>
+  <animation effect="fade" start="0" end="100" time="300" tween="quadratic" easing="out">WindowOpen</animation>
+  <animation effect="fade" start="100" end="0" time="300" delay="150" tween="quadratic" easing="out">WindowClose</animation>
+  <coordinates>
+    <system>1</system>
+    <left>-200</left>
+    <top>120</top>
+  </coordinates>
+  <controls>
+					<control type="image">
+		<left>200</left>
+        <top>450</top>
+        <width>1920</width>
+        <height>150</height>
+                <texture>mask_grey95.png</texture>	
+				</control>
+    <control type="group">
+		 <control type="multiimage">
+                <!-- background -->
+                <left>200</left>
+                <top>-120</top>
+                <width>1920</width>
+                <height>40</height>
+                <aspectratio>stretch</aspectratio>
+				<timeperimage>12000</timeperimage>
+				<randomize>true</randomize>
+				<fadetime>2000</fadetime>
+										<pauseatend>0</pauseatend>
+			<loop>true</loop>
+                <imagepath background="true">walls</imagepath>
+				<visible>!Skin.HasSetting(Menu_RandomCustom1)</visible>
+              <!--   <texture flipy="true">OSDbackground.png</texture> -->
+                <!-- flip y when up the top -->
+            </control>
+								<control type="image">
+		<left>200</left>
+        <top>-120</top>
+        <width>1920</width>
+        <height>40</height>
+                <texture>mask_black20.png</texture>	
+				</control>
+
+			
+	<!-- 			  <control type="image">
+	  	  	  	  		 		<animation type="WindowOpen">
+                        <effect type="fade" start="0" end="300" delay="400" tween="sine" easing="out" time="900" />
+                        <effect type="slide" start="200" end="260" delay="600" tween="cubic" easing="out" time="1300" />
+                    </animation>
+				<animation type="WindowClose">
+                        <effect type="fade" start="300" end="0" delay="400" tween="sine" easing="in" time="900" />
+                        <effect type="slide" start="260" end="220" delay="600" tween="cubic" easing="out" time="1300" />
+                    </animation>
+              <left>-11</left>
+        <top>350</top>
+        <width>400</width>
+        <height>180</height>
+                <texture>white.jpg</texture>			
+            </control> -->
+  
+      <control type="multiimage">
+<!-- 	  	  	  		 		<animation type="WindowOpen">
+                        <effect type="fade" start="0" end="300" delay="400" tween="sine" easing="out" time="900" />
+                        <effect type="slide" start="200" end="260" delay="600" tween="cubic" easing="out" time="1300" />
+                    </animation>
+				<animation type="WindowClose">
+                        <effect type="fade" start="300" end="0" delay="400" tween="sine" easing="in" time="900" />
+                        <effect type="slide" start="260" end="220" delay="600" tween="cubic" easing="out" time="1300" />
+                    </animation> -->
+        <!-- tvshow-video background szín -->
+        <left>0</left>
+        <top>-120</top>
+        <width>1980</width>
+        <height>80</height>
+				<timeperimage>16000</timeperimage>
+				<randomize>false</randomize>
+				<fadetime>4000</fadetime>
+										<pauseatend>0</pauseatend>
+			<loop>true</loop>
+             <!--    <imagepath background="true">walls</imagepath> -->
+				<visible>!Skin.HasSetting(Menu_RandomCustom1)</visible>
+        <visible>!VideoPlayer.Content(Files)</visible>
+        <visible>!Skin .HasSetting(slimseek)</visible>
+      </control>
+      <control type="image">
+	  	  		 		<animation type="WindowOpen">
+                        <effect type="fade" start="0" end="300" delay="100" tween="sine" easing="out" time="900" />
+                        <effect type="slide" start="200" end="260" delay="300" tween="cubic" easing="out" time="1300" />
+						</animation>
+						<animation type="WindowClose">
+                        <effect type="fade" start="300" end="0" delay="100" tween="sine" easing="in" time="900" />
+                        <effect type="slide" start="260" end="220" delay="300" tween="cubic" easing="out" time="1300" />
+						</animation>
+        <left>228</left>
+        <top>330</top>
+        <width>824</width>
+        <height>190</height>
+        <aspectratio>stretch</aspectratio>
+       <!--  <texture>ContentPanel.png</texture> -->
+        <visible>VideoPlayer.Content(Files) | Skin.HasSetting(slimseek)</visible>
+      </control>
+
+	  <!-- Film poster -->
+      <control type="image">
+<!-- 	  	  		 		<animation type="WindowOpen">
+                        <effect type="fade" start="0" end="300" delay="100" tween="sine" easing="out" time="900" />
+                        <effect type="slide" start="200" end="260" delay="300" tween="cubic" easing="out" time="1300" />
+                    </animation>
+				<animation type="WindowClose">
+                        <effect type="fade" start="300" end="0" delay="100" tween="sine" easing="in" time="900" />
+                        <effect type="slide" start="260" end="220" delay="300" tween="cubic" easing="out" time="1300" />
+                    </animation> -->
+        <description>Movie cover image</description>
+        <left>210</left>
+        <top>300</top>
+        <width>160</width>
+        <height>240</height>
+        <fadetime>100</fadetime>
+        <animation effect="fade" time="900">VisibleChange</animation>
+        <texture background="true">$INFO[VideoPlayer.Cover]</texture>
+        <!-- <bordertexture border="6">ContentPanelvertical.png</bordertexture> -->
+        <bordersize>6</bordersize>
+        <aspectratio aligny="bottom">stretch</aspectratio>
+        <visible>VideoPlayer.Content(Movies)</visible>
+        <visible>!Skin.HasSetting(slimseek)</visible>
+      </control>
+      <control type="image">
+					 		<animation type="WindowOpen">
+                        <effect type="fade" start="0" end="300" delay="1100" tween="sine" easing="out" time="900" />
+                        <effect type="slide" start="100" end="260" delay="800" tween="cubic" easing="out" time="1300" />
+                    </animation>
+				<animation type="WindowClose">
+                        <effect type="fade" start="300" end="0" delay="1100" tween="sine" easing="in" time="900" />
+                        <effect type="slide" start="260" end="220" delay="800" tween="cubic" easing="out" time="1300" />
+                    </animation>
+        <!-- STARS-->
+        <description>IMDB rating</description>
+        <left>180</left>
+        <top>505</top>
+        <width>90</width>
+        <height>19</height>
+        <texture>$INFO[Player.StarRating]</texture>
+        <colordiffuse>FFFFFFFF</colordiffuse>
+        <visible>VideoPlayer.Content(Movies) + !Skin.HasSetting(slimseek)</visible>
+      </control>
+      <control type="image">
+	  	  		 		<animation type="WindowOpen">
+                        <effect type="fade" start="0" end="300" delay="100" tween="sine" easing="out" time="900" />
+                        <effect type="slide" start="200" end="260" delay="300" tween="cubic" easing="out" time="1300" />
+                    </animation>
+				<animation type="WindowClose">
+                        <effect type="fade" start="300" end="0" delay="100" tween="sine" easing="in" time="900" />
+                        <effect type="slide" start="260" end="220" delay="300" tween="cubic" easing="out" time="1300" />
+                    </animation>
+					
+					
+
+        <!-- STARS TV-->
+        <description>IMDB rating</description>
+        <left>118</left>
+        <top>520</top>
+        <width>90</width>
+        <height>19</height>
+        <texture>$INFO[Player.StarRating]</texture>
+        <colordiffuse>FFFFFFFF</colordiffuse>
+        <visible>VideoPlayer.Content(Episodes) + !Skin.HasSetting(slimseek)</visible>
+      </control>
+      <control type="image">
+        <description>TV Show Poster cover image</description>
+        <left>210</left>
+        <top>300</top>
+        <width>160</width>
+        <height>240</height>
+        <fadetime>200</fadetime>
+        <animation effect="fade" time="900">VisibleChange</animation>
+        <texture>$INFO[Player.Art(tvshow.poster)]</texture>
+<!--         <bordertexture border="6">ContentPanelvertical.png</bordertexture> -->
+        <bordersize>6</bordersize>
+        <aspectratio aligny="bottom">stretch</aspectratio>
+        <visible>VideoPlayer.Content(Episodes)</visible>
+        <visible>!Skin.HasSetting(slimseek)</visible>
+      </control>
+      <!-- NOW PLAYING INFO LiveTV -->
+      <control type="image">
+        <description>LiveTV Channel Logo</description>
+        <left>244</left>
+        <top>260</top>
+        <width>100</width>
+        <height>100</height>
+        <fadetime>200</fadetime>
+        <animation effect="fade" time="900">VisibleChange</animation>
+        <texture background="true">$INFO[VideoPlayer.Cover]</texture>
+        <bordertexture border="6">ContentPanelVertical.png</bordertexture>
+        <bordersize>6</bordersize>
+        <aspectratio aligny="bottom">keep</aspectratio>
+        <visible>VideoPlayer.Content(LiveTV)</visible>
+        <visible>!Skin.HasSetting(slimseek)</visible> --&gt;
+        </control>
+<!--        <control type="progress">
+        <description>Progressbar</description>
+        <left>415</left>
+        <top>510</top>
+        <width>610</width>
+        <height>14</height>
+        <info>Player.Progress</info>
+        <visible>!VideoPlayer.Content(Files)</visible>
+        <visible>!Skin.HasSetting(slimseek)</visible>
+      </control> -->
+<!--       <control type="slider" id="401">
+        <description>Seek Slider</description>
+        <left>385</left>
+        <top>507</top>
+        <width>610</width>
+        <height>12</height>
+        <texturesliderbar>seekslider.png</texturesliderbar>
+        <textureslidernib>osd_slider_nib.png</textureslidernib>
+        <textureslidernibfocus>osd_slider_nib.png</textureslidernibfocus>
+        <visible>Player.Seeking</visible>
+        <visible>!VideoPlayer.Content(Files)</visible>
+        <visible>!Skin.HasSetting(slimseek)</visible>
+      </control> -->
+<!--       <control type="progress">
+        <description>Progressbar</description>
+        <left>250</left>
+        <top>492</top>
+        <width>780</width>
+        <height>14</height>
+        <info>Player.Progress</info>
+        <visible>VideoPlayer.Content(Files) | Skin.HasSetting(slimseek)</visible>
+      </control> -->
+ <!--      <control type="slider" id="401">
+        <description>Seek Slider</description>
+        <left>220</left>
+        <top>389</top>
+        <width>780</width>
+        <height>2</height>
+        <texturesliderbar>seekslider.png</texturesliderbar>
+        <textureslidernib>osd_slider_nib.png</textureslidernib>
+        <textureslidernibfocus>osd_slider_nib.png</textureslidernibfocus>
+        <visible>Player.Seeking</visible>
+        <visible>VideoPlayer.Content(Files) | Skin.HasSetting(slimseek)</visible>
+      </control> -->
+	  
+	  
+	  <control type="group">
+<!-- 	  	  		 		<animation type="WindowOpen">
+                        <effect type="fade" start="0" end="300" delay="100" tween="sine" easing="out" time="900" />
+                        <effect type="slide" start="200" end="260" delay="300" tween="cubic" easing="out" time="1300" />
+                    </animation>
+				<animation type="WindowClose">
+                        <effect type="fade" start="300" end="0" delay="100" tween="sine" easing="in" time="900" />
+                        <effect type="slide" start="260" end="220" delay="300" tween="cubic" easing="out" time="1300" />
+                    </animation> -->
+        <!-- Center labels -->
+        <left>590</left>
+        <top>0</top>
+        <align>center</align>
+        <control type="label">
+		<animation type="WindowOpen">
+                        <effect type="fade" start="0" end="300" delay="100" tween="sine" easing="out" time="900" />
+                        <effect type="slide" start="200" end="260" delay="300" tween="cubic" easing="out" time="1300" />
+                    </animation>
+				<animation type="WindowClose">
+                        <effect type="fade" start="300" end="0" delay="100" tween="sine" easing="in" time="900" />
+                        <effect type="slide" start="260" end="220" delay="300" tween="cubic" easing="out" time="1300" />
+                    </animation>
+          <description>Paused Label</description>
+          <left>-670</left>
+          <top>-120</top>
+          <width>200</width>
+          <height>35</height>
+          <align>center</align>
+          <aligny>center</aligny>
+          <font>Dialog-Detail</font>
+          <textcolor>white</textcolor>
+          <label>31043</label>
+          <visible>[Player.Paused + !Player.Caching] + !Player.Seeking</visible>
+          <visible>!VideoPlayer.Content(Files) + !Skin.HasSetting(slimseek)</visible>
+        </control>
+		
+		
+		        <control type="image">
+          <description>Paused Label</description>
+          <left>-380</left>
+          <top>-110</top>
+          <width>20</width>
+          <height>20</height>
+          <align>center</align>
+          <aligny>center</aligny>
+          <texture>osd/miniplayer/pause_nf.png</texture>
+          <label>31043</label>
+          <visible>[Player.Paused + !Player.Caching] + !Player.Seeking</visible>
+          <visible>!VideoPlayer.Content(Files) + !Skin.HasSetting(slimseek)</visible>
+        </control>
+		
+		
+
+        <control type="label">
+          <description>Cache Label</description>
+         <left>650</left>
+          <top>-120</top>
+          <width>240</width>
+          <height>35</height>
+          <align>center</align>
+          <aligny>center</aligny>
+          <font>Dialog-Detail</font>
+          <textcolor>white</textcolor>
+          <label>$LOCALIZE[15107] $INFO[Player.CacheLevel]%</label>
+          <visible>[Player.Paused + Player.Caching] + !Player.Seeking</visible>
+          <visible>!VideoPlayer.Content(Files) + !Skin.HasSetting(slimseek)</visible>
+        </control>
+      </control>
+	  
+	          <control type="label">
+          <description>System Time</description>
+          <left>1330</left>
+          <top>-120</top>
+          <width>200</width>
+          <height>35</height>
+          <label>$INFO[System.Time]</label>
+          <align>center</align>
+          <aligny>center</aligny>
+          <font>Dialog-Detail</font>
+          <textcolor>white</textcolor>
+          <shadowcolor>black</shadowcolor>
+          <visible>!VideoPlayer.Content(Files)</visible>
+          <visible>!Skin.HasSetting(slimseek)</visible>
+        </control>
+	  
+    </control>
+    <control type="group">
+      <left>200</left>
+      <top>420</top>
+     
+      <control type="label">
+	  		 		<animation type="WindowOpen">
+                        <effect type="fade" start="0" end="300" delay="100" tween="sine" easing="out" time="900" />
+                        <effect type="slide" start="200" end="260" delay="300" tween="cubic" easing="out" time="1300" />
+                    </animation>
+				<animation type="WindowClose">
+                        <effect type="fade" start="300" end="0" delay="100" tween="sine" easing="in" time="900" />
+                        <effect type="slide" start="260" end="220" delay="300" tween="cubic" easing="out" time="1300" />
+                    </animation>
+        <left>-80</left>
+        <top>40</top>
+        <width>550</width>
+        <height>30</height>
+        <label>$INFO[VideoPlayer.TVShowTitle]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <scroll>true</scroll>
+        <font>Clock-Detail</font>
+        <textcolor>white</textcolor>
+        <visible>VideoPlayer.Content(Episodes)</visible>
+        <visible>!Skin.HasSetting(slimseek)</visible>
+      </control>
+      <control type="label">
+	  		 		<animation type="WindowOpen">
+                        <effect type="fade" start="0" end="300" delay="100" tween="sine" easing="out" time="900" />
+                        <effect type="slide" start="200" end="260" delay="300" tween="cubic" easing="out" time="1300" />
+                    </animation>
+				<animation type="WindowClose">
+                        <effect type="fade" start="300" end="0" delay="100" tween="sine" easing="in" time="900" />
+                        <effect type="slide" start="260" end="220" delay="300" tween="cubic" easing="out" time="1300" />
+                    </animation>
+        <left>-50</left>
+        <top>60</top>
+        <width>300</width>
+        <height>30</height>
+        <label>$INFO[VideoPlayer.TVShowTitle]</label>
+        <align>center</align>
+        <aligny>center</aligny>
+        <scroll>true</scroll>
+        <font>Clock-Detail</font>
+        <textcolor>grey</textcolor>
+        <shadowcolor>black</shadowcolor>
+        <visible>VideoPlayer.Content(Episodes)</visible>
+        <visible>Skin.HasSetting(slimseek)</visible>
+      </control>
+	              <control type="label">
+				  	  		 		<animation type="WindowOpen">
+                        <effect type="fade" start="0" end="300" delay="100" tween="sine" easing="out" time="900" />
+                        <effect type="slide" start="200" end="260" delay="300" tween="cubic" easing="out" time="1300" />
+                    </animation>
+				<animation type="WindowClose">
+                        <effect type="fade" start="300" end="0" delay="100" tween="sine" easing="in" time="900" />
+                        <effect type="slide" start="260" end="220" delay="300" tween="cubic" easing="out" time="1300" />
+                    </animation>
+                <left>-80</left>
+                <top>60</top>
+                <width>300</width>
+                <height>25</height>
+                <label>$INFO[VideoPlayer.Title]</label>
+				
+                <scroll>true</scroll>
+                <align>left</align>
+                <aligny>center</aligny>
+                <font>Clock-Detail</font>
+                <textcolor>white</textcolor>
+
+            </control>
+	  
+      <control type="label">
+	  	  		 		<animation type="WindowOpen">
+                        <effect type="fade" start="0" end="300" delay="100" tween="sine" easing="out" time="900" />
+                        <effect type="slide" start="200" end="260" delay="300" tween="cubic" easing="out" time="1300" />
+                    </animation>
+				<animation type="WindowClose">
+                        <effect type="fade" start="300" end="0" delay="100" tween="sine" easing="in" time="900" />
+                        <effect type="slide" start="260" end="220" delay="300" tween="cubic" easing="out" time="1300" />
+                    </animation>
+        <left>-80</left>
+        <top>75</top>
+        <width>550</width>
+        <height>30</height>
+        <label>[COLOR=white]$LOCALIZE[20373][/COLOR] $INFO[VideoPlayer.Season]  [COLOR=white]$LOCALIZE[20359][/COLOR] $INFO[VideoPlayer.Episode]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <scroll>true</scroll>
+        <font>Clock-Detail</font>
+        <textcolor>grey</textcolor>
+        <visible>VideoPlayer.Content(Episodes)</visible>
+        <visible>!Skin.HasSetting(slimseek)</visible>
+      </control>
+      <control type="label">
+	  	  		 		<animation type="WindowOpen">
+                        <effect type="fade" start="0" end="300" delay="100" tween="sine" easing="out" time="900" />
+                        <effect type="slide" start="200" end="260" delay="300" tween="cubic" easing="out" time="1300" />
+                    </animation>
+				<animation type="WindowClose">
+                        <effect type="fade" start="300" end="0" delay="100" tween="sine" easing="in" time="900" />
+                        <effect type="slide" start="260" end="220" delay="300" tween="cubic" easing="out" time="1300" />
+                    </animation>
+        <left>-80</left>
+        <top>70</top>
+        <width>300</width>
+        <height>30</height>
+        <label>[COLOR=accent]$LOCALIZE[20373][/COLOR] $INFO[VideoPlayer.Season]  [COLOR=accent]$LOCALIZE[20359][/COLOR] $INFO[VideoPlayer.Episode]</label>
+        <align>center</align>
+        <aligny>center</aligny>
+        <scroll>true</scroll>
+        <font>cirrus_22_Bold</font>
+        <textcolor>accent</textcolor>
+        <shadowcolor>black</shadowcolor>
+        <visible>VideoPlayer.Content(Episodes)</visible>
+        <visible>Skin.HasSetting(slimseek)</visible>
+      </control>
+      <control type="label">
+	  	  		 		<animation type="WindowOpen">
+                        <effect type="fade" start="0" end="300" delay="100" tween="sine" easing="out" time="900" />
+                        <effect type="slide" start="200" end="260" delay="300" tween="cubic" easing="out" time="1300" />
+                    </animation>
+				<animation type="WindowClose">
+                        <effect type="fade" start="300" end="0" delay="100" tween="sine" easing="in" time="900" />
+                        <effect type="slide" start="260" end="220" delay="300" tween="cubic" easing="out" time="1300" />
+                    </animation>
+        <left>0</left>
+        <top>35</top>
+        <width>680</width>
+        <height>30</height>
+        <label>$INFO[VideoPlayer.Artist]$INFO[VideoPlayer.Album, - ]</label>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>cirrus_20</font>
+        <textcolor>grey</textcolor>
+        <shadowcolor>black</shadowcolor>
+        <visible>VideoPlayer.Content(MusicVideos)</visible>
+        <visible>!Skin.HasSetting(slimseek)</visible>
+      </control>
+      <control type="label">
+	  	  		 		<animation type="WindowOpen">
+                        <effect type="fade" start="0" end="300" delay="100" tween="sine" easing="out" time="900" />
+                        <effect type="slide" start="200" end="260" delay="300" tween="cubic" easing="out" time="1300" />
+                    </animation>
+				<animation type="WindowClose">
+                        <effect type="fade" start="300" end="0" delay="100" tween="sine" easing="in" time="900" />
+                        <effect type="slide" start="260" end="220" delay="300" tween="cubic" easing="out" time="1300" />
+                    </animation>
+        <left>-12</left>
+        <top>230</top>
+        <width>300</width>
+        <height>30</height>
+        <label>$INFO[VideoPlayer.Artist]$INFO[VideoPlayer.Album, - ]</label>
+        <align>center</align>
+        <aligny>center</aligny>
+        <font>cirrus_20</font>
+        <textcolor>grey</textcolor>
+        <shadowcolor>black</shadowcolor>
+        <visible>VideoPlayer.Content(MusicVideos)</visible>
+        <visible>Skin.HasSetting(slimseek)</visible>
+      </control>
+<!--       <control type="label">
+					 		<animation type="WindowOpen">
+                        <effect type="fade" start="0" end="300" delay="800" tween="sine" easing="out" time="900" />
+                        <effect type="slide" start="100" end="260" delay="500" tween="cubic" easing="out" time="1300" />
+                    </animation>
+				<animation type="WindowClose">
+                        <effect type="fade" start="300" end="0" delay="800" tween="sine" easing="in" time="900" />
+                        <effect type="slide" start="260" end="220" delay="500" tween="cubic" easing="out" time="1300" />
+                    </animation>
+        <left>-80</left>
+        <top>40</top>
+        <width>550</width>
+        <height>30</height>
+        <label>$INFO[VideoPlayer.Title]</label>
+        <scroll>true</scroll>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>Clock-Detail</font>
+        <textcolor>white</textcolor>
+
+        <visible>VideoPlayer.Content(Movies)</visible>
+        <visible>!Skin.HasSetting(slimseek)</visible>
+      </control> -->
+      <control type="label">
+					 		<animation type="WindowOpen">
+                        <effect type="fade" start="0" end="300" delay="900" tween="sine" easing="out" time="900" />
+                        <effect type="slide" start="100" end="260" delay="600" tween="cubic" easing="out" time="1300" />
+                    </animation>
+				<animation type="WindowClose">
+                        <effect type="fade" start="300" end="0" delay="900" tween="sine" easing="in" time="900" />
+                        <effect type="slide" start="260" end="220" delay="600" tween="cubic" easing="out" time="1300" />
+                    </animation>
+        <left>-80</left>
+        <top>80</top>
+        <width>550</width>
+        <height>30</height>
+        <label>$INFO[VideoPlayer.Year]</label>
+        <scroll>true</scroll>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>Clock-Detail</font>
+        <textcolor>white</textcolor>
+       <!--  <shadowcolor>black</shadowcolor> -->
+        <visible>VideoPlayer.Content(Movies)</visible>
+        <visible>!Skin.HasSetting(slimseek)</visible>
+      </control>
+<!--  	  		<control type="image">
+					 		<animation type="WindowOpen">
+                        <effect type="fade" start="0" end="300" delay="600" tween="sine" easing="out" time="600" />
+                        <effect type="slide" start="100" end="260" delay="300" tween="cubic" easing="out" time="1000" />
+                    </animation>
+				<animation type="WindowClose">
+                        <effect type="fade" start="300" end="0" delay="600" tween="sine" easing="in" time="600" />
+                        <effect type="slide" start="260" end="220" delay="300" tween="cubic" easing="out" time="1000" />
+                    </animation>
+		<left>-30</left>
+        <top>80</top>
+        <width>1</width>
+        <height>15</height>
+                <texture>white.jpg</texture>	
+				</control>  -->
+				
+				
+				        <control type="label">
+
+          <description>Current Video End Time</description>
+          <left>730</left>
+          <top>40</top>
+          <width>510</width>
+          <height>20</height>
+          <label>[COLOR=grey2]$LOCALIZE[31049][/COLOR] $INFO[Player.FinishTime]</label>
+          <align>right</align>
+          <aligny>center</aligny>
+          <font>Clock-Detail</font>
+          <textcolor>grey2</textcolor>
+          <visible>!VideoPlayer.Content(Files)</visible>
+          <visible>!Skin.HasSetting(slimseek)</visible>
+        </control>
+				
+				
+      <control type="largeimage">
+	  	  		 		<animation type="WindowOpen">
+                        <effect type="fade" start="0" end="300" delay="100" tween="sine" easing="out" time="900" />
+                        <effect type="slide" start="200" end="260" delay="300" tween="cubic" easing="out" time="1300" />
+                    </animation>
+				<animation type="WindowClose">
+                        <effect type="fade" start="300" end="0" delay="100" tween="sine" easing="in" time="900" />
+                        <effect type="slide" start="260" end="220" delay="300" tween="cubic" easing="out" time="1300" />
+                    </animation>
+
+        <description>TV Show Image</description>
+        <left>200r</left>
+        <top>263</top>
+        <width>200</width>
+        <height>112</height>
+        <texture fallback="blank.png">$INFO[Player.Art(tvshow.clearart)]</texture>
+        <aspectratio>keep</aspectratio>
+        <visible>Skin.HasSetting(clearart) + VideoPlayer.Content(episodes)</visible>
+      </control>
+      <control type="label">
+	  	  		 		<animation type="WindowOpen">
+                        <effect type="fade" start="0" end="300" delay="100" tween="sine" easing="out" time="900" />
+                        <effect type="slide" start="200" end="260" delay="300" tween="cubic" easing="out" time="1300" />
+                    </animation>
+				<animation type="WindowClose">
+                        <effect type="fade" start="300" end="0" delay="100" tween="sine" easing="in" time="900" />
+                        <effect type="slide" start="260" end="220" delay="300" tween="cubic" easing="out" time="1300" />
+                    </animation>
+        <left>-132</left>
+        <top>220</top>
+        <width>780</width>
+        <height>30</height>
+        <label>$LOCALIZE[41260] $INFO[VideoPlayer.Director]</label>
+        <scroll>true</scroll>
+        <align>center</align>
+        <aligny>center</aligny>
+        <font>cirrus_18</font>
+        <textcolor>grey</textcolor>
+        <shadowcolor>black</shadowcolor>
+        <visible>VideoPlayer.Content(Movies)</visible>
+        <visible>Skin.HasSetting(slimseek)</visible>
+      </control>
+      <control type="label">
+	  	  		 		<animation type="WindowOpen">
+                        <effect type="fade" start="0" end="300" delay="100" tween="sine" easing="out" time="900" />
+                        <effect type="slide" start="200" end="260" delay="300" tween="cubic" easing="out" time="1300" />
+                    </animation>
+				<animation type="WindowClose">
+                        <effect type="fade" start="300" end="0" delay="100" tween="sine" easing="in" time="900" />
+                        <effect type="slide" start="260" end="220" delay="300" tween="cubic" easing="out" time="1300" />
+                    </animation>
+        <left>-12</left>
+        <top>250</top>
+        <width>300</width>
+        <height>20</height>
+        <label>$LOCALIZE[572]: $INFO[VideoPlayer.Studio]</label>
+        <scroll>true</scroll>
+        <align>center</align>
+        <aligny>center</aligny>
+        <font>cirrus_18</font>
+        <textcolor>white</textcolor>
+        <shadowcolor>black</shadowcolor>
+        <visible>VideoPlayer.Content(Movies) | VideoPlayer.Content(episodes)</visible>
+        <visible>Skin.HasSetting(slimseek)</visible>
+      </control>
+      <control type="label">
+	  	  		 		<animation type="WindowOpen">
+                        <effect type="fade" start="0" end="300" delay="100" tween="sine" easing="out" time="900" />
+                        <effect type="slide" start="200" end="260" delay="300" tween="cubic" easing="out" time="1300" />
+                    </animation>
+				<animation type="WindowClose">
+                        <effect type="fade" start="300" end="0" delay="100" tween="sine" easing="in" time="900" />
+                        <effect type="slide" start="260" end="220" delay="300" tween="cubic" easing="out" time="1300" />
+                    </animation>
+        <left>-100</left>
+        <top>75</top>
+        <width>530</width>
+        <height>30</height>
+        <label>$INFO[VideoPlayer.Title]</label>
+        <scroll>true</scroll>
+        <align>left</align>
+        <aligny>center</aligny>
+        <font>cirrus_30</font>
+        <textcolor>white</textcolor>
+        <shadowcolor>black</shadowcolor>
+        <visible>VideoPlayer.Content(LiveTV)</visible>
+      </control>
+      <!-- Changes Begin Butchabay MOD 1.2.0 -->
+      <control type="label">
+	  	  		 		<animation type="WindowOpen">
+                        <effect type="fade" start="0" end="300" delay="100" tween="sine" easing="out" time="900" />
+                        <effect type="slide" start="200" end="260" delay="300" tween="cubic" easing="out" time="1300" />
+                    </animation>
+				<animation type="WindowClose">
+                        <effect type="fade" start="300" end="0" delay="100" tween="sine" easing="in" time="900" />
+                        <effect type="slide" start="260" end="220" delay="300" tween="cubic" easing="out" time="1300" />
+                    </animation>
+        <left>-132</left>
+        <top>190</top>
+        <width>780</width>
+        <height>30</height>
+        <label>$INFO[VideoPlayer.Title]</label>
+        <scroll>true</scroll>
+        <align>center</align>
+        <aligny>center</aligny>
+        <font>cirrus_24</font>
+        <textcolor>white</textcolor>
+        <shadowcolor>black</shadowcolor>
+        <visible>VideoPlayer.Content(Files) | Skin.HasSetting(slimseek)</visible>
+        <visible>!VideoPlayer.Content(episodes)</visible>
+      </control>
+      <control type="label">
+	  	  		 		<animation type="WindowOpen">
+                        <effect type="fade" start="0" end="300" delay="100" tween="sine" easing="out" time="900" />
+                        <effect type="slide" start="200" end="260" delay="300" tween="cubic" easing="out" time="1300" />
+                    </animation>
+				<animation type="WindowClose">
+                        <effect type="fade" start="300" end="0" delay="100" tween="sine" easing="in" time="900" />
+                        <effect type="slide" start="260" end="220" delay="300" tween="cubic" easing="out" time="1300" />
+                    </animation>
+        <description>Playing Label</description>
+        <left>-132</left>
+        <top>157</top>
+        <width>780</width>
+        <height>25</height>
+        <align>center</align>
+        <aligny>center</aligny>
+        <font>cirrus_22_Bold</font>
+        <textcolor>accent</textcolor>
+        <shadowcolor>black</shadowcolor>
+        <label>$INFO[VideoPlayer.Year]</label>
+        <visible>Skin.HasSetting(slimseek)</visible>
+      </control>
+      <control type="label">
+	  	  		 		<animation type="WindowOpen">
+                        <effect type="fade" start="0" end="300" delay="100" tween="sine" easing="out" time="900" />
+                        <effect type="slide" start="200" end="260" delay="300" tween="cubic" easing="out" time="1300" />
+                    </animation>
+				<animation type="WindowClose">
+                        <effect type="fade" start="300" end="0" delay="100" tween="sine" easing="in" time="900" />
+                        <effect type="slide" start="260" end="220" delay="300" tween="cubic" easing="out" time="1300" />
+                    </animation>
+        <description>Paused Label</description>
+        <left>-132</left>
+        <top>275</top>
+        <width>780</width>
+        <height>35</height>
+        <align>center</align>
+        <aligny>center</aligny>
+        <font>cirrus_24_Bold</font>
+        <textcolor>accent</textcolor>
+        <label>31043</label>
+        <visible>[Player.Paused + !Player.Caching] + !Player.Seeking</visible>
+        <visible>VideoPlayer.Content(Files) | Skin.HasSetting(slimseek)</visible>
+      </control>
+      <control type="label">
+	  	  		 		<animation type="WindowOpen">
+                        <effect type="fade" start="0" end="300" delay="100" tween="sine" easing="out" time="900" />
+                        <effect type="slide" start="200" end="260" delay="300" tween="cubic" easing="out" time="1300" />
+                    </animation>
+				<animation type="WindowClose">
+                        <effect type="fade" start="300" end="0" delay="100" tween="sine" easing="in" time="900" />
+                        <effect type="slide" start="260" end="220" delay="300" tween="cubic" easing="out" time="1300" />
+                    </animation>
+        <description>Cache Label</description>
+        <left>-132</left>
+        <top>275</top>
+        <width>780</width>
+        <height>35</height>
+        <align>center</align>
+        <aligny>center</aligny>
+        <font>cirrus_22_Bold</font>
+        <textcolor>accent</textcolor>
+        <label>$LOCALIZE[15107] $INFO[Player.CacheLevel]%</label>
+        <visible>[Player.Paused + Player.Caching] + !Player.Seeking</visible>
+        <visible>VideoPlayer.Content(Files) | Skin.HasSetting(slimseek)</visible>
+      </control>
+     
+      <control type="group">
+
+        <!-- images for ff rew pause etc -->
+        <left>340</left>
+        <top>125</top>
+        <visible>!VideoPlayer.Content(Files)</visible>
+        <visible>!Skin.HasSetting(slimseek)</visible>
+        <control type="image">
+          <left>0</left>
+          <top>0</top>
+          <width>65</width>
+          <height>55</height>
+          <texture>OSDRewindNF.png</texture>
+          <visible>Player.Rewinding</visible>
+        </control>
+        <control type="image">
+          <left>0</left>
+          <top>0</top>
+          <width>65</width>
+          <height>55</height>
+          <texture>OSDForwardNF.png</texture>
+          <visible>Player.Forwarding</visible>
+        </control>
+        <control type="image">
+          <left>86</left>
+          <top>0</top>
+          <width>97</width>
+          <height>55</height>
+          <texture>OSD2x.png</texture>
+          <visible>Player.Rewinding2x</visible>
+        </control>
+        <control type="image">
+          <left>86</left>
+          <top>0</top>
+          <width>97</width>
+          <height>55</height>
+          <texture>OSD4x.png</texture>
+          <visible>Player.Rewinding4x</visible>
+        </control>
+        <control type="image">
+          <left>86</left>
+          <top>0</top>
+          <width>97</width>
+          <height>55</height>
+          <texture>OSD8x.png</texture>
+          <visible>Player.Rewinding8x</visible>
+        </control>
+        <control type="image">
+          <left>86</left>
+          <top>0</top>
+          <width>97</width>
+          <height>55</height>
+          <texture>OSD16x.png</texture>
+          <visible>Player.Rewinding16x</visible>
+        </control>
+        <control type="image">
+          <left>86</left>
+          <top>0</top>
+          <width>97</width>
+          <height>55</height>
+          <texture>OSD32x.png</texture>
+          <visible>Player.Rewinding32x</visible>
+        </control>
+        <control type="image">
+          <left>86</left>
+          <top>0</top>
+          <width>97</width>
+          <height>55</height>
+          <texture>OSD2x.png</texture>
+          <visible>Player.Forwarding2x</visible>
+        </control>
+        <control type="image">
+          <left>86</left>
+          <top>0</top>
+          <width>97</width>
+          <height>55</height>
+          <texture>OSD4x.png</texture>
+          <visible>Player.Forwarding4x</visible>
+        </control>
+        <control type="image">
+          <left>86</left>
+          <top>0</top>
+          <width>97</width>
+          <height>55</height>
+          <texture>OSD8x.png</texture>
+          <visible>Player.Forwarding8x</visible>
+        </control>
+        <control type="image">
+          <left>86</left>
+          <top>0</top>
+          <width>97</width>
+          <height>55</height>
+          <texture>OSD16x.png</texture>
+          <visible>Player.Forwarding16x</visible>
+        </control>
+        <control type="image">
+          <left>86</left>
+          <top>0</top>
+          <width>97</width>
+          <height>55</height>
+          <texture>OSD32x.png</texture>
+          <visible>Player.Forwarding32x</visible>
+        </control>
+      </control>
+      <control type="group">
+	  	  		 		<animation type="WindowOpen">
+                        <effect type="fade" start="0" end="300" delay="100" tween="sine" easing="out" time="900" />
+                        <effect type="slide" start="200" end="260" delay="300" tween="cubic" easing="out" time="1300" />
+                    </animation>
+				<animation type="WindowClose">
+                        <effect type="fade" start="300" end="0" delay="100" tween="sine" easing="in" time="900" />
+                        <effect type="slide" start="260" end="220" delay="300" tween="cubic" easing="out" time="1300" />
+                    </animation>
+        <!-- images for ff rew pause etc -->
+        <left>40</left>
+        <top>272</top>
+        <visible>VideoPlayer.Content(Files) | Skin.HasSetting(slimseek)</visible>
+        <control type="image">
+          <left>40</left>
+          <top>10</top>
+          <width>35</width>
+          <height>29</height>
+          <texture>OSDRewindNF.png</texture>
+          <visible>Player.Rewinding</visible>
+        </control>
+        <control type="image">
+          <left>40</left>
+          <top>10</top>
+          <width>35</width>
+          <height>29</height>
+          <texture>OSDForwardNF.png</texture>
+          <visible>Player.Forwarding</visible>
+        </control>
+        <control type="image">
+          <left>86</left>
+          <top>0</top>
+          <width>67</width>
+          <height>38</height>
+          <texture>OSD2x.png</texture>
+          <visible>Player.Rewinding2x</visible>
+        </control>
+        <control type="image">
+          <left>86</left>
+          <top>0</top>
+          <width>67</width>
+          <height>38</height>
+          <texture>OSD4x.png</texture>
+          <visible>Player.Rewinding4x</visible>
+        </control>
+        <control type="image">
+          <left>86</left>
+          <top>0</top>
+          <width>67</width>
+          <height>38</height>
+          <texture>OSD8x.png</texture>
+          <visible>Player.Rewinding8x</visible>
+        </control>
+        <control type="image">
+          <left>86</left>
+          <top>0</top>
+          <width>67</width>
+          <height>38</height>
+          <texture>OSD16x.png</texture>
+          <visible>Player.Rewinding16x</visible>
+        </control>
+        <control type="image">
+          <left>86</left>
+          <top>0</top>
+          <width>67</width>
+          <height>38</height>
+          <texture>OSD32x.png</texture>
+          <visible>Player.Rewinding32x</visible>
+        </control>
+        <control type="image">
+          <left>86</left>
+          <top>0</top>
+          <width>67</width>
+          <height>38</height>
+          <texture>OSD2x.png</texture>
+          <visible>Player.Forwarding2x</visible>
+        </control>
+        <control type="image">
+          <left>86</left>
+          <top>0</top>
+          <width>67</width>
+          <height>38</height>
+          <texture>OSD4x.png</texture>
+          <visible>Player.Forwarding4x</visible>
+        </control>
+        <control type="image">
+          <left>86</left>
+          <top>0</top>
+          <width>67</width>
+          <height>38</height>
+          <texture>OSD8x.png</texture>
+          <visible>Player.Forwarding8x</visible>
+        </control>
+        <control type="image">
+          <left>86</left>
+          <top>0</top>
+          <width>67</width>
+          <height>38</height>
+          <texture>OSD16x.png</texture>
+          <visible>Player.Forwarding16x</visible>
+        </control>
+        <control type="image">
+          <left>86</left>
+          <top>0</top>
+          <width>67</width>
+          <height>38</height>
+          <texture>OSD32x.png</texture>
+          <visible>Player.Forwarding32x</visible>
+        </control>
+      </control>
+      
+      <control type="group">
+	  	  		 		<animation type="WindowOpen">
+                        <effect type="fade" start="0" end="300" delay="100" tween="sine" easing="out" time="900" />
+                        <effect type="slide" start="200" end="260" delay="300" tween="cubic" easing="out" time="1300" />
+                    </animation>
+				<animation type="WindowClose">
+                        <effect type="fade" start="300" end="0" delay="100" tween="sine" easing="in" time="900" />
+                        <effect type="slide" start="260" end="220" delay="300" tween="cubic" easing="out" time="1300" />
+                    </animation>
+        <left>0</left>
+        <top>85</top>
+        <control type="grouplist">
+          <visible>VideoPlayer.Content(Files)</visible>
+          <description>Media Codec Flagging Images</description>
+          <left>-150</left>
+          <top>150</top>
+          <width min="100" max="550">auto</width>
+          <align>center</align>
+          <itemgap>0</itemgap>
+          <orientation>horizontal</orientation>
+          <control type="image">
+            <description>Video rez Image</description>
+            <width>80</width>
+            <height>30</height>
+            <aspectratio>keep</aspectratio>
+            <texture diffuse="maskflags.png" colordiffuse="$VAR[FlagColor]">$INFO[VideoPlayer.VideoResolution,special://skin/extras/flagging/video/,.png]</texture>
+          </control>
+          <control type="image">
+            <description>Common Codec Image</description>
+            <width min="30" max="120">auto</width>
+            <height>30</height>
+            <aspectratio>keep</aspectratio>
+            <texture diffuse="maskflags.png" colordiffuse="$VAR[FlagColor]">$INFO[VideoPlayer.VideoCodec,special://skin/extras/flagging/video/,.png]</texture>
+            <!-- Don't show if its one of the 500 divx codecs -->
+            <visible>![substring(VideoPlayer.VideoCodec,divx) | substring(VideoPlayer.VideoCodec,div3) | substring(VideoPlayer.VideoCodec,div4) | substring(VideoPlayer.VideoCodec,div5) | substring(VideoPlayer.VideoCodec,dx50)]</visible>
+          </control>
+          <control type="image">
+            <description>Divx Codec Image</description>
+            <width min="30" max="120">auto</width>
+            <height>30</height>
+            <aspectratio>keep</aspectratio>
+            <texture diffuse="maskflags.png" colordiffuse="$VAR[FlagColor]">special://skin/extras/flagging/video/divx.png</texture>
+            <visible>substring(VideoPlayer.VideoCodec,divx) | substring(VideoPlayer.VideoCodec,div3) | substring(VideoPlayer.VideoCodec,div4) | substring(VideoPlayer.VideoCodec,div5) | substring(VideoPlayer.VideoCodec,dx50)</visible>
+          </control>
+          <control type="image">
+            <description>Dolby Digital Image</description>
+            <width min="30" max="120">auto</width>
+            <height>30</height>
+            <aspectratio>keep</aspectratio>
+            <texture diffuse="maskflags.png" colordiffuse="$VAR[FlagColor]">special://skin/extras/flagging/audio/dolbydigital.png</texture>
+            <visible>[substring(VideoPlayer.AudioCodec,ac3) + substring(VideoPlayer.AudioChannels,6)]</visible>
+          </control>
+          <control type="image">
+            <description>Audio Codec Image</description>
+            <width min="30" max="120">auto</width>
+            <height>30</height>
+            <aspectratio>keep</aspectratio>
+            <texture diffuse="maskflags.png" colordiffuse="$VAR[FlagColor]">$INFO[VideoPlayer.AudioCodec,special://skin/extras/flagging/audio/,.png]</texture>
+            <!-- Don't show if I want the Dolby Digital Logo -->
+            <visible>![substring(VideoPlayer.AudioCodec,ac3) + substring(VideoPlayer.AudioChannels,6)]</visible>
+          </control>
+          <control type="image">
+            <description>Audio Channels Image</description>
+            <width min="30" max="80">auto</width>
+            <height>30</height>
+            <aspectratio>keep</aspectratio>
+            <texture diffuse="maskflags.png" colordiffuse="$VAR[FlagColor]">$INFO[VideoPlayer.AudioChannels,special://skin/extras/flagging/audio/,.png]</texture>
+          </control>
+        </control>
+      </control>
+    </control>
+  </controls>
+  
+	<!-- OSD menü kezdete -->
+      <controls>
+        <control type="group">
+<!--             <animation effect="slide" start="0,-145" end="0,0" time="300" tween="quadratic" easing="out">WindowOpen</animation>
+            <animation effect="slide" start="0,0" end="0,-145" time="300" delay="150" tween="quadratic" easing="out">WindowClose</animation> -->
+            <animation effect="slide" start="0,0" end="0,-145" time="300" tween="quadratic" easing="out" condition="Window.IsVisible(SliderDialog) | Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(VideoBookmarks) | Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVROSDGuide)">Conditional</animation>
+
+           
+            <!-- SETTINGS GROUP (Bookmarks audio video) -->
+            <control type="group" id="200">
+                <left>1000</left>
+                <top>500</top>
+                <control type="button" id="700">
+                    <left>0</left>
+                    <top>0</top>
+                    <width>40</width>
+                    <height>28</height>
+                    <label>298</label>
+                    <font>-</font>
+                    <texturefocus>OSDBookMarksFO.png</texturefocus>
+                    <texturenofocus>OSDBookMarksNF.png</texturenofocus>
+                    <onleft>605</onleft>
+                    <onright>701</onright>
+                    <ondown>500</ondown>
+                    <onclick>ActivateWindow(125)</onclick>
+                </control>
+                <control type="button" id="701">
+                    <left>50</left>
+                    <top>0</top>
+                    <width>40</width>
+                    <height>28</height>
+                    <label>13396</label>
+                    <font>-</font>
+                    <texturefocus>OSDAudioFO.png</texturefocus>
+                    <texturenofocus>OSDAudioNF.png</texturenofocus>
+                    <onleft>700</onleft>
+                    <onright>702</onright>
+                    <ondown>500</ondown>
+                    <onclick>ActivateWindow(osdaudiosettings)</onclick>
+                </control>
+                <control type="button" id="702">
+                    <left>100</left>
+                    <top>0</top>
+                    <width>40</width>
+                    <height>28</height>
+                    <label>13395</label>
+                    <font>-</font>
+                    <texturefocus>OSDVideoFO.png</texturefocus>
+                    <texturenofocus>OSDVideoNF.png</texturenofocus>
+                    <onleft>701</onleft>
+                    <onright>703</onright>
+                    <ondown>500</ondown>
+                    <onclick>ActivateWindow(123)</onclick>
+                </control>
+                <control type="button" id="703">
+                    <left>150</left>
+                    <top>0</top>
+                    <width>40</width>
+                    <height>28</height>
+                    <label>31356</label>
+                    <font>-</font>
+                    <texturefocus>OSDSubtitlesFO.png</texturefocus>
+                    <texturenofocus>OSDSubtitlesNF.png</texturenofocus>
+                    <onleft>702</onleft>
+                    <onright>704</onright>
+                    <ondown>500</ondown>
+                    <onclick>Close</onclick>  
+                    <onclick>ActivateWindow(SubtitleSearch)</onclick>
+                </control>
+                <control type="button" id="704">
+                    <left>250</left>
+                    <top>-5</top>
+                    <width>40</width>
+                    <height>40</height>
+                    <label>264</label>
+                    <font>-</font>
+                    <texturefocus>OSDRecord2.png</texturefocus>
+                    <texturenofocus>OSDRecordNF2.png</texturenofocus>
+                    <onleft>703</onleft>
+                    <onright>705</onright>
+                    <ondown>500</ondown>
+                    <onclick>XBMC.PlayerControl(record)</onclick>
+                    <enable>Player.CanRecord</enable>
+                    <animation effect="fade" start="100" end="50" time="100" condition="!Player.CanRecord">Conditional</animation>
+                    <visible>VideoPlayer.Content(LiveTV) + Player.CanRecord + !Player.Recording</visible>
+                </control>
+                <control type="button" id="704">
+                    <left>250</left>
+                    <top>-5</top>
+                    <width>40</width>
+                    <height>40</height>
+                    <label>19043</label>
+                    <font>-</font>
+                    <textcolor>accent</textcolor>
+                    <texturefocus>OSDRecord2.png</texturefocus>
+                    <texturenofocus>OSDRecordNF2.png</texturenofocus>
+                    <onleft>703</onleft>
+                    <onright>705</onright>
+                    <ondown>500</ondown>
+                    <onclick>XBMC.PlayerControl(record)</onclick>
+                    <enable>Player.CanRecord</enable>
+                    <animation effect="fade" start="100" end="50" time="100" condition="!Player.CanRecord">Conditional</animation>
+                    <visible>VideoPlayer.Content(LiveTV) + Player.CanRecord + Player.Recording</visible>
+                </control>
+                <control type="button" id="705">
+                    <left>300</left>
+                    <top>-5</top>
+                    <width>40</width>
+                    <height>40</height>
+                    <label>41152</label>
+                    <font>-</font>
+                    <texturefocus>OSDChannelListFO.png</texturefocus>
+                    <texturenofocus>OSDChannelListNF.png</texturenofocus>
+                    <onleft>704</onleft>
+                    <onright>706</onright>
+                    <ondown>500</ondown>
+                    <onclick>ActivateWindow(PVROSDChannels)</onclick>
+                    <onclick>Dialog.Close(VideoOSD)</onclick>
+                    <visible>VideoPlayer.Content(LiveTV)</visible>
+                </control>
+                <control type="button" id="706">
+                    <left>350</left>
+                    <top>-5</top>
+                    <width>40</width>
+                    <height>40</height>
+                    <label>$LOCALIZE[19029]$INFO[VideoPlayer.ChannelName, - ]</label>
+                    <font>-</font>
+                    <texturefocus>OSDepgFO.png</texturefocus>
+                    <texturenofocus>OSDepgNF.png</texturenofocus>
+                    <onleft>705</onleft>
+                    <onright>707</onright>
+                    <ondown>500</ondown>
+                    <onclick>ActivateWindow(PVROSDGuide)</onclick>
+                    <visible>VideoPlayer.Content(LiveTV)</visible>
+                </control>
+                <control type="button" id="707">
+                    <left>400</left>
+                    <top>-5</top>
+                    <width>40</width>
+                    <height>40</height>
+                    <label>41153</label>
+                    <font>-</font>
+                    <texturefocus>OSDTeleTextFO.png</texturefocus>
+                    <texturenofocus>OSDTeleTextNF.png</texturenofocus>
+                    <onleft>706</onleft>
+                    <onright>600</onright>
+                    <ondown>500</ondown>
+                    <onclick>ActivateWindow(Teletext)</onclick>
+                    <visible>VideoPlayer.Content(LiveTV)</visible>
+                </control>
+            </control>
+            <!-- GROUP FOR PLAYER CONTROLS -->
+            <control type="group" id="100">
+                <left>650</left>
+                <top>500</top>
+                <control type="button" id="600">
+                    <left>0</left>
+                    <top>0</top>
+                    <width>40</width>
+                    <height>28</height>
+                    <label>210</label>
+                    <font>-</font>
+                    <texturefocus>OSDPrevTrackFO.png</texturefocus>
+                    <texturenofocus>OSDPrevTrackNF.png</texturenofocus>
+                    <onleft>707</onleft>
+                    <onright>601</onright>
+                    <ondown>500</ondown>
+                    <onclick>PlayerControl(Previous)</onclick>
+                </control>
+                <control type="button" id="601">
+                    <left>50</left>
+                    <top>0</top>
+                    <width>40</width>
+                    <height>28</height>
+                    <label>31354</label>
+                    <font>-</font>
+                    <texturefocus>OSDRewindFO.png</texturefocus>
+                    <texturenofocus>OSDRewindNF.png</texturenofocus>
+                    <onleft>600</onleft>
+                    <onright>602</onright>
+                    <ondown>500</ondown>
+                    <onclick>PlayerControl(Rewind)</onclick>
+                </control>
+                <control type="togglebutton" id="602">
+                    <left>100</left>
+                    <top>0</top>
+                    <width>40</width>
+                    <height>28</height>
+                    <label>31351</label>
+                    <altlabel>208</altlabel>
+                    <font>-</font>
+                    <texturefocus>OSDPauseFO.png</texturefocus>
+                    <texturenofocus>OSDPauseNF.png</texturenofocus>
+                    <usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
+                    <alttexturefocus>OSDPlayFO.png</alttexturefocus>
+                    <alttexturenofocus>OSDPlayNF.png</alttexturenofocus>
+                    <onleft>601</onleft>
+                    <onright>603</onright>
+                    <ondown>500</ondown>
+                    <onclick>PlayerControl(Play)</onclick>
+                </control>
+                <control type="button" id="603">
+                    <left>150</left>
+                    <top>0</top>
+                    <width>40</width>
+                    <height>28</height>
+                    <label>31352</label>
+                    <font>-</font>
+                    <texturefocus>OSDStopFO.png</texturefocus>
+                    <texturenofocus>OSDStopNF.png</texturenofocus>
+                    <onleft>602</onleft>
+                    <onright>604</onright>
+                    <ondown>500</ondown>
+                    <onclick>PlayerControl(Stop)</onclick>
+                </control>
+                <control type="button" id="604">
+                    <left>200</left>
+                    <top>0</top>
+                    <width>40</width>
+                    <height>28</height>
+                    <label>31353</label>
+                    <font>-</font>
+                    <texturefocus>OSDForwardFO.png</texturefocus>
+                    <texturenofocus>OSDForwardNF.png</texturenofocus>
+                    <onleft>603</onleft>
+                    <onright>605</onright>
+                    <ondown>500</ondown>
+                    <onclick>PlayerControl(Forward)</onclick>
+                </control>
+                <control type="button" id="605">
+                    <left>250</left>
+                    <top>0</top>
+                    <width>40</width>
+                    <height>28</height>
+                    <label>209</label>
+                    <font>-</font>
+                    <texturefocus>OSDNextTrackFO.png</texturefocus>
+                    <texturenofocus>OSDNextTrackNF.png</texturenofocus>
+                    <onleft>604</onleft>
+                    <onright>606</onright>
+                    <ondown>500</ondown>
+                    <onclick>PlayerControl(Next)</onclick>
+                </control>
+                <control type="button" id="606">
+                    <left>300</left>
+                    <top>0</top>
+                    <width>40</width>
+                    <height>28</height>
+                    <label>31355</label>
+                    <font>-</font>
+                    <texturefocus>OSDDvdFO.png</texturefocus>
+                    <texturenofocus>OSDDvdNF.png</texturenofocus>
+                    <onleft>605</onleft>
+                    <onright>700</onright>
+                    <ondown>500</ondown>
+                    <onclick>PlayerControl(ShowVideoMenu)</onclick>
+                    <enable>VideoPlayer.HasMenu</enable>
+                    <animation effect="fade" start="100" end="50" time="100" condition="!VideoPlayer.HasMenu">Conditional</animation>
+                </control>
+<!--                 <control type="image" id="11">
+                    <description>separator image</description>
+                    <left>-400</left>
+                    <top>40</top>
+                    <width>1280</width>
+                    <height>1</height>
+                    <colordiffuse>66FFFFFF</colordiffuse>
+                    <texture>separator2.png</texture>
+                </control> -->
+            </control>
+<!--             <control type="label">
+                <left>20</left>
+                <top>65</top>
+                <width>300</width>
+                <height>25</height>
+                <label>$INFO[VideoPlayer.Title]</label>
+                <scroll>true</scroll>
+                <align>left</align>
+                <aligny>center</aligny>
+                <font>cirrus_20</font>
+                <textcolor>accent</textcolor>
+                <shadowcolor>black</shadowcolor>
+            </control> -->
+<!--             <control type="label">
+                <left>450</left>
+                <top>62</top>
+                <width>380</width>
+                <height>20</height>
+                <label>$INFO[System.CurrentControl]</label>
+                <scroll>true</scroll>
+                <align>center</align>
+                <aligny>center</aligny>
+                <font>cirrus_18</font>
+                <textcolor>grey</textcolor>
+                <shadowcolor>black</shadowcolor>
+            </control> -->
+            <control type="label">
+                <left>250</left>
+                <top>550</top>
+                <width>460</width>
+                <height>25</height>
+                <label>$INFO[VideoPlayer.Time]</label>
+                <scroll>true</scroll>
+                <align>right</align>
+                <aligny>center</aligny>
+                <font>Clock-Detail</font>
+                <textcolor>white</textcolor>
+                <!-- <shadowcolor>black</shadowcolor> -->
+            </control>
+			
+			            <control type="label">
+						
+                <left>985</left>
+                <top>550</top>
+                <width>460</width>
+                <height>25</height>
+                <label>$INFO[VideoPlayer.Duration]</label>
+                <scroll>true</scroll>
+                <align>right</align>
+                <aligny>center</aligny>
+                <font>Clock-Detail</font>
+                <textcolor>white</textcolor>
+                <!-- <shadowcolor>black</shadowcolor> -->
+            </control>
+			
+			
+             <control type="progress">
+                <description>Progressbar</description>
+                <left>650</left>
+                <top>580</top>
+                <width>800</width>
+                <height>2</height>
+                <info>Player.Progress</info>
+            </control>
+             <control type="slider" id="500">
+                <description>Seek Slider</description>
+                <left>470</left>
+                <top>550</top>
+                <width>720</width>
+                <height>2</height>
+                <action>seek</action>
+                <ondown>602</ondown>
+                <onup>602</onup>
+                 <texturesliderbar>seekslider.png</texturesliderbar>
+                <textureslidernib>osd_seeknf.png</textureslidernib>
+                <textureslidernibfocus>osd_seek.png</textureslidernibfocus>
+            </control>
+            <include>Clock</include>
+        </control>
+		
+		
+				<!-- FLAGS -->
+		    <control type="group">
+      <left>55</left>
+      <top>405</top>
+		 <control type="grouplist">
+<!-- 	  					 		<animation type="WindowOpen">
+                        <effect type="fade" start="0" end="300" delay="100" tween="sine" easing="out" time="900" />
+                        <effect type="slide" start="200" end="260" delay="300" tween="cubic" easing="out" time="1300" />
+                    </animation>
+				<animation type="WindowClose">
+                        <effect type="fade" start="300" end="0" delay="100" tween="sine" easing="in" time="900" />
+                        <effect type="slide" start="260" end="220" delay="300" tween="cubic" easing="out" time="1300" />
+                    </animation> -->
+        <visible>!VideoPlayer.Content(Files)</visible>
+        <visible>!Skin.HasSetting(slimseek)</visible>
+        <description>Media Codec Flagging Images</description>
+        <left>160</left>
+        <top>150</top>
+        <width min="100" max="550">auto</width>
+        <align>left</align>
+        <itemgap>0</itemgap>
+        <orientation>horizontal</orientation>
+        <control type="image">
+          <description>Video rez Image</description>
+          <width>80</width>
+          <height>30</height>
+          <aspectratio>keep</aspectratio>
+          <texture diffuse="maskflags.png" colordiffuse="$VAR[FlagColor]">$INFO[VideoPlayer.VideoResolution,special://skin/extras/flagging/video/,.png]</texture>
+        </control>
+        <control type="image">
+          <description>Common Codec Image</description>
+          <width min="30" max="120">auto</width>
+          <height>30</height>
+          <aspectratio>keep</aspectratio>
+          <texture diffuse="maskflags.png" colordiffuse="$VAR[FlagColor]">$INFO[VideoPlayer.VideoCodec,special://skin/extras/flagging/video/,.png]</texture>
+          <!-- Don't show if its one of the 500 divx codecs -->
+          <visible>![substring(VideoPlayer.VideoCodec,divx) | substring(VideoPlayer.VideoCodec,div3) | substring(VideoPlayer.VideoCodec,div4) | substring(VideoPlayer.VideoCodec,div5) | substring(VideoPlayer.VideoCodec,dx50)]</visible>
+        </control>
+        <control type="image">
+          <description>Divx Codec Image</description>
+          <width min="30" max="120">auto</width>
+          <height>30</height>
+          <aspectratio>keep</aspectratio>
+          <texture diffuse="maskflags.png" colordiffuse="$VAR[FlagColor]">special://skin/extras/flagging/video/divx.png</texture>
+          <visible>substring(VideoPlayer.VideoCodec,divx) | substring(VideoPlayer.VideoCodec,div3) | substring(VideoPlayer.VideoCodec,div4) | substring(VideoPlayer.VideoCodec,div5) | substring(VideoPlayer.VideoCodec,dx50)</visible>
+        </control>
+        <control type="image">
+          <description>Dolby Digital Image</description>
+          <width min="30" max="120">auto</width>
+          <height>30</height>
+          <aspectratio>keep</aspectratio>
+          <texture diffuse="maskflags.png" colordiffuse="$VAR[FlagColor]">special://skin/extras/flagging/audio/dolbydigital.png</texture>
+          <visible>[substring(VideoPlayer.AudioCodec,ac3) + substring(VideoPlayer.AudioChannels,6)]</visible>
+        </control>
+        <control type="image">
+          <description>Audio Codec Image</description>
+          <width min="30" max="120">auto</width>
+          <height>30</height>
+          <aspectratio>keep</aspectratio>
+          <texture diffuse="maskflags.png" colordiffuse="$VAR[FlagColor]">$INFO[VideoPlayer.AudioCodec,special://skin/extras/flagging/audio/,.png]</texture>
+          <!-- Don't show if I want the Dolby Digital Logo -->
+          <visible>![substring(VideoPlayer.AudioCodec,ac3) + substring(VideoPlayer.AudioChannels,6)]</visible>
+        </control>
+        <control type="image">
+          <description>Audio Channels Image</description>
+          <width min="30" max="80">auto</width>
+          <height>30</height>
+          <aspectratio>keep</aspectratio>
+          <texture diffuse="maskflags.png" colordiffuse="$VAR[FlagColor]">$INFO[VideoPlayer.AudioChannels,special://skin/extras/flagging/audio/,.png]</texture>
+        </control>
+      </control>
+	   </control>
+		
+		
+    </controls>
+
+  
+  
+</window>
+
+

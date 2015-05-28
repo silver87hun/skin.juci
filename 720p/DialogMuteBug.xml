@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="113">
+    <defaultcontrol>-</defaultcontrol>
+    <include>dialogeffect</include>
+    <coordinates>
+        <system>0</system>
+        <left>0</left>
+        <top>0</top>
+    </coordinates>
+    <controls>
+        <control type="group">
+            <left>900</left>
+            <top>20</top>
+	<animation effect="slide" start="100,0" end="0,0" time="100">WindowOpen</animation>
+    <animation effect="slide" start="0,0" end="100,0" time="100">WindowClose</animation>
+
+	<control type="image">
+                <left>35</left>
+                <top>0</top>
+                <width>30</width>
+                <height>30</height>
+                <aspectratio>keep</aspectratio>
+                <texture>mute6.png</texture>
+            </control> -->
+        </control>
+    </controls>
+</window>
